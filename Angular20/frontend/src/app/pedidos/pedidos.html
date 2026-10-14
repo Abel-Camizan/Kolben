@@ -1,6 +1,9 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Pedidos en línea</h2>
+<header class="cabecera-pagina">
+  <div>
+    <h1>Pedidos en línea</h1>
+    <p>Confirma los pedidos de tus clientes; al confirmar se descuenta el stock.</p>
+  </div>
+  <div class="acciones-cabecera">
     <select name="estado" [(ngModel)]="estado" (ngModelChange)="cargar()">
       <option value="pendiente">Pendientes</option>
       <option value="confirmado">Confirmados</option>
@@ -9,6 +12,9 @@
       <option value="">Todos</option>
     </select>
   </div>
+</header>
+
+<section class="tarjeta">
 
   @if (aviso()) {
     <p class="aviso">{{ aviso() }}</p>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
 import { Auth } from '../core/auth';
 import { UsuarioAdmin } from '../core/models';
+import { Icono } from '../shared/icono';
 
 interface Formulario {
   nombre: string;
@@ -16,7 +17,7 @@ const VACIO: Formulario = { nombre: '', usuario: '', password: '', rol: 'vendedo
 
 @Component({
   selector: 'app-usuarios',
-  imports: [FormsModule, DatePipe],
+  imports: [FormsModule, DatePipe, Icono],
   templateUrl: './usuarios.html',
 })
 export class Usuarios {

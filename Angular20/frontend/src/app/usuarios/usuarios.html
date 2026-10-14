@@ -1,10 +1,14 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Usuarios</h2>
-    @if (!mostrarFormulario) {
-      <button type="button" (click)="nuevo()">Nuevo usuario</button>
-    }
+<header class="cabecera-pagina">
+  <div>
+    <h1>Usuarios</h1>
+    <p>Cuentas del personal y clientes registrados en línea</p>
   </div>
+  @if (!mostrarFormulario) {
+    <button type="button" (click)="nuevo()"><app-icono nombre="mas" />Nuevo usuario</button>
+  }
+</header>
+
+<section class="tarjeta">
 
   @if (aviso()) {
     <p class="aviso">{{ aviso() }}</p>
@@ -70,7 +74,7 @@
             <td>{{ u.usuario }}</td>
             <td>{{ u.rol }}</td>
             <td>{{ u.creado_en | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ u.activo ? 'Activo' : 'Desactivado' }}</td>
+            <td><span class="estado" [class.entregado]="u.activo" [class.cancelado]="!u.activo">{{ u.activo ? 'Activo' : 'Desactivado' }}</span></td>
             <td class="acciones">
               <button type="button" class="secundario" (click)="editar(u)">Editar</button>
               @if (!esYo(u)) {

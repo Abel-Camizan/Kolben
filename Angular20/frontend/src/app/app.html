@@ -1,38 +1,90 @@
-<header class="barra no-imprimir">
-  <strong>Kolben</strong>
+@if (auth.esPersonal()) {
+  <div class="shell">
+    <aside class="lateral no-imprimir" [class.abierto]="menuAbierto()">
+      <a routerLink="/ventas" class="marca" (click)="menuAbierto.set(false)">
+        <span class="marca-icono"><app-icono nombre="logo" [tamano]="20" /></span>
+        Kolben
+      </a>
 
-  <nav>
-    @if (auth.esPersonal()) {
-      <a routerLink="/ventas" routerLinkActive="activo">Ventas</a>
-      <a routerLink="/pedidos" routerLinkActive="activo">Pedidos</a>
-      <a routerLink="/clientes" routerLinkActive="activo">Clientes</a>
-      @if (auth.esAdmin()) {
-        <a routerLink="/repuestos" routerLinkActive="activo">Repuestos</a>
-        <a routerLink="/proveedores" routerLinkActive="activo">Proveedores</a>
-        <a routerLink="/ingresos" routerLinkActive="activo">Ingresos</a>
-        <a routerLink="/reportes" routerLinkActive="activo">Reportes</a>
-        <a routerLink="/usuarios" routerLinkActive="activo">Usuarios</a>
+      <nav (click)="menuAbierto.set(false)">
+        <p class="grupo-titulo">Operación</p>
+        <a routerLink="/ventas" routerLinkActive="activo"><app-icono nombre="ventas" />Ventas</a>
+        <a routerLink="/pedidos" routerLinkActive="activo"><app-icono nombre="pedidos" />Pedidos</a>
+        <a routerLink="/clientes" routerLinkActive="activo"><app-icono nombre="clientes" />Clientes</a>
+
+        @if (auth.esAdmin()) {
+          <p class="grupo-titulo">Inventario</p>
+          <a routerLink="/repuestos" routerLinkActive="activo"><app-icono nombre="repuestos" />Repuestos</a>
+          <a routerLink="/proveedores" routerLinkActive="activo"><app-icono nombre="proveedores" />Proveedores</a>
+          <a routerLink="/ingresos" routerLinkActive="activo"><app-icono nombre="ingresos" />Ingresos</a>
+
+          <p class="grupo-titulo">Análisis y gestión</p>
+          <a routerLink="/reportes" routerLinkActive="activo"><app-icono nombre="reportes" />Reportes</a>
+          <a routerLink="/usuarios" routerLinkActive="activo"><app-icono nombre="usuarios" />Usuarios</a>
+        }
+      </nav>
+
+      @if (auth.usuario(); as u) {
+        <div class="pie-lateral">
+          <span class="avatar">{{ iniciales(u.nombre) }}</span>
+          <span class="datos-usuario">
+            <strong>{{ u.nombre }}</strong>
+            <small>{{ u.rol }}</small>
+          </span>
+          <button type="button" class="icono-boton" (click)="auth.logout()" aria-label="Cerrar sesión" title="Cerrar sesión">
+            <app-icono nombre="salir" />
+          </button>
+        </div>
       }
-    } @else {
+    </aside>
+
+    @if (menuAbierto()) {
+      <div class="velo no-imprimir" (click)="menuAbierto.set(false)"></div>
+    }
+
+    <div class="contenido">
+      <header class="superior no-imprimir">
+        <button type="button" class="icono-boton boton-menu" (click)="menuAbierto.set(true)" aria-label="Abrir menú">
+          <app-icono nombre="menu" [tamano]="22" />
+        </button>
+        <span class="superior-marca">Kolben</span>
+      </header>
+      <main class="principal">
+        <router-outlet />
+      </main>
+    </div>
+  </div>
+} @else {
+  <header class="barra-publica no-imprimir">
+    <a routerLink="/catalogo" class="marca">
+      <span class="marca-icono"><app-icono nombre="logo" [tamano]="20" /></span>
+      Kolben
+    </a>
+
+    <nav class="enlaces-publicos">
       <a routerLink="/catalogo" routerLinkActive="activo">Catálogo</a>
-      <a routerLink="/carrito" routerLinkActive="activo">Carrito ({{ carrito.cantidadTotal() }})</a>
       @if (auth.esCliente()) {
         <a routerLink="/mis-pedidos" routerLinkActive="activo">Mis pedidos</a>
       }
-    }
-  </nav>
+    </nav>
 
-  @if (auth.usuario(); as u) {
-    <span class="usuario">
-      {{ u.nombre }} ({{ u.rol }})
-      <button type="button" class="secundario" (click)="auth.logout()">Salir</button>
-    </span>
-  } @else {
-    <span class="usuario">
-      <a routerLink="/login" class="boton secundario">Iniciar sesión</a>
-      <a routerLink="/registro" class="boton">Crear cuenta</a>
-    </span>
-  }
-</header>
-
-<router-outlet />
+    <div class="acciones-publicas">
+      <a routerLink="/carrito" class="carrito-enlace" aria-label="Carrito">
+        <app-icono nombre="ventas" [tamano]="20" />
+        @if (carrito.cantidadTotal() > 0) {
+          <span class="contador">{{ carrito.cantidadTotal() }}</span>
+        }
+      </a>
+      @if (auth.usuario(); as u) {
+        <span class="avatar">{{ iniciales(u.nombre) }}</span>
+        <button type="button" class="secundario" (click)="auth.logout()">Salir</button>
+      } @else {
+        <a routerLink="/login" class="boton secundario">Iniciar sesión</a>
+        <a routerLink="/registro" class="boton">Crear cuenta</a>
+      }
+    </div>
+  </header>
+  <main class="publico">
+    <router-outlet />
+  </main>
+}

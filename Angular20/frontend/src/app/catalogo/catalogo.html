@@ -1,64 +1,62 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Catálogo de repuestos</h2>
-    @if (!auth.esPersonal()) {
-      <a routerLink="/carrito" class="boton">Ver carrito ({{ carrito.cantidadTotal() }})</a>
-    }
+<header class="cabecera-pagina">
+  <div>
+    <h1>Catálogo de repuestos</h1>
+    <p>Encuentra el repuesto para tu moto: TVS King Deluxe, TVS Duramax y Bajaj Torito.</p>
   </div>
+</header>
 
-  <div class="filtros">
-    <input
-      name="texto"
-      placeholder="Buscar por nombre o código"
-      [(ngModel)]="texto"
-      (ngModelChange)="buscarConRetraso()"
-    />
-    <select name="modelo" [(ngModel)]="modeloId" (ngModelChange)="buscar()">
-      <option [ngValue]="null">Todos los modelos de moto</option>
-      @for (m of modelos(); track m.id) {
-        <option [ngValue]="m.id">{{ m.nombre }}</option>
-      }
-    </select>
-  </div>
+<input
+  class="buscador"
+  name="texto"
+  placeholder="Buscar por nombre o código"
+  [(ngModel)]="texto"
+  (ngModelChange)="buscarConRetraso()"
+/>
 
-  @if (error()) {
-    <p class="error">{{ error() }}</p>
+<div class="chips">
+  <button type="button" class="secundario" [class.activo]="modeloId === null" (click)="elegirModelo(null)">Todos</button>
+  @for (m of modelos(); track m.id) {
+    <button type="button" class="secundario" [class.activo]="modeloId === m.id" (click)="elegirModelo(m.id)">
+      {{ m.nombre }}
+    </button>
   }
+</div>
 
-  <table>
-    <thead>
-      <tr><th>Código</th><th>Repuesto</th><th>Modelos</th><th>Precio</th><th>Disponibilidad</th><th></th></tr>
-    </thead>
-    <tbody>
-      @for (r of resultados(); track r.id) {
-        <tr>
-          <td>{{ r.codigo }}</td>
-          <td>
-            {{ r.nombre }}
-            <small>{{ r.marca }}</small>
-          </td>
-          <td>
-            @for (m of r.modelos; track m.id) {
-              <small>{{ m.nombre }}</small>
-            }
-          </td>
-          <td>S/ {{ r.precio }}</td>
-          <td [class.agotado]="r.stock === 0">{{ r.stock > 0 ? 'En stock (' + r.stock + ')' : 'Agotado' }}</td>
-          <td>
-            @if (!auth.esPersonal()) {
-              <button
-                type="button"
-                (click)="carrito.agregar(r)"
-                [disabled]="r.stock === 0 || carrito.cantidadDe(r.id) >= r.stock"
-              >
-                {{ carrito.cantidadDe(r.id) > 0 ? 'Agregar otro (' + carrito.cantidadDe(r.id) + ')' : 'Agregar al carrito' }}
-              </button>
-            }
-          </td>
-        </tr>
-      } @empty {
-        <tr><td colspan="6">No hay repuestos que coincidan con la búsqueda.</td></tr>
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+<div class="productos">
+  @for (r of resultados(); track r.id) {
+    <article class="producto">
+      <div class="producto-imagen"><app-icono nombre="repuestos" [tamano]="34" /></div>
+      <small>{{ r.codigo }}</small>
+      <h3>{{ r.nombre }}</h3>
+      <small>{{ r.marca }}@if (r.categoria) { · {{ r.categoria }} }</small>
+      <div class="modelos">
+        @for (m of r.modelos; track m.id) {
+          <span>{{ m.nombre }}</span>
+        }
+      </div>
+      @if (r.stock > 0) {
+        <span class="estado entregado">En stock · {{ r.stock }}</span>
+      } @else {
+        <span class="estado cancelado">Agotado</span>
       }
-    </tbody>
-  </table>
-</section>
+      <div class="producto-pie">
+        <span class="precio">S/ {{ r.precio }}</span>
+        @if (!auth.esPersonal()) {
+          <button
+            type="button"
+            (click)="carrito.agregar(r)"
+            [disabled]="r.stock === 0 || carrito.cantidadDe(r.id) >= r.stock"
+          >
+            {{ carrito.cantidadDe(r.id) > 0 ? 'Agregar otro (' + carrito.cantidadDe(r.id) + ')' : 'Agregar' }}
+          </button>
+        }
+      </div>
+    </article>
+  } @empty {
+    <p class="vacio">No hay repuestos que coincidan con la búsqueda.</p>
+  }
+</div>

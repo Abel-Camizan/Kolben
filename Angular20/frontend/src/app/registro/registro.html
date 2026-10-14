@@ -1,31 +1,40 @@
-<main class="tarjeta login">
-  <h1>Crear cuenta</h1>
-  <p>Regístrate para generar pedidos en línea</p>
+<main class="autenticacion">
+  <div class="tarjeta panel-auth">
+    <span class="marca">
+      <span class="marca-icono"><app-icono nombre="logo" [tamano]="20" /></span>
+      Kolben
+    </span>
+    <h1>Crear cuenta</h1>
+    <p>Regístrate para generar pedidos en línea.</p>
 
-  <form (ngSubmit)="crearCuenta()">
-    <label>Nombre completo <input name="nombre" [(ngModel)]="nombre" required /></label>
-    <label>
-      Usuario (mínimo 3 caracteres)
-      <input name="usuario" [(ngModel)]="usuario" autocomplete="username" required minlength="3" />
-    </label>
-    <label>
-      Contraseña (mínimo 6 caracteres)
-      <input name="password" type="password" [(ngModel)]="password" autocomplete="new-password" required minlength="6" />
-    </label>
-    <label>
-      DNI o RUC (opcional)
-      <input name="documento" [(ngModel)]="documento" inputmode="numeric" maxlength="11" />
-    </label>
-    <label>Teléfono (opcional) <input name="telefono" [(ngModel)]="telefono" inputmode="tel" /></label>
+    <form (ngSubmit)="crearCuenta()">
+      <label>Nombre completo <input name="nombre" [(ngModel)]="nombre" required /></label>
+      <label>
+        Usuario (mínimo 3 caracteres)
+        <input name="usuario" [(ngModel)]="usuario" autocomplete="username" required minlength="3" />
+      </label>
+      <label>
+        Contraseña (mínimo 6 caracteres)
+        <input name="password" type="password" [(ngModel)]="password" autocomplete="new-password" required minlength="6" />
+      </label>
+      <label>
+        DNI o RUC (opcional)
+        <input name="documento" [(ngModel)]="documento" inputmode="numeric" maxlength="11" />
+      </label>
+      <label>Teléfono (opcional) <input name="telefono" [(ngModel)]="telefono" inputmode="tel" /></label>
 
-    @if (error()) {
-      <p class="error">{{ error() }}</p>
-    }
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
 
-    <button type="submit" [disabled]="cargando() || !nombre || usuario.length < 3 || password.length < 6">
-      {{ cargando() ? 'Creando…' : 'Crear cuenta' }}
-    </button>
-  </form>
+      <button type="submit" [disabled]="cargando() || !nombre || usuario.length < 3 || password.length < 6">
+        {{ cargando() ? 'Creando…' : 'Crear cuenta' }}
+      </button>
+    </form>
 
-  <p>¿Ya tienes cuenta? <a routerLink="/login" [queryParams]="ruta.snapshot.queryParams">Inicia sesión</a></p>
+    <p class="alterno">
+      ¿Ya tienes cuenta?
+      <a routerLink="/login" [queryParams]="ruta.snapshot.queryParams">Inicia sesión</a>
+    </p>
+  </div>
 </main>

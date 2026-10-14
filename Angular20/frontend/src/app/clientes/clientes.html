@@ -1,10 +1,14 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Clientes</h2>
-    @if (!mostrarFormulario) {
-      <button type="button" (click)="nuevo()">Nuevo cliente</button>
-    }
+<header class="cabecera-pagina">
+  <div>
+    <h1>Clientes</h1>
+    <p>Registra clientes y consulta su historial de compras</p>
   </div>
+  @if (!mostrarFormulario) {
+    <button type="button" (click)="nuevo()"><app-icono nombre="mas" />Nuevo cliente</button>
+  }
+</header>
+
+<section class="tarjeta">
 
   @if (aviso()) {
     <p class="aviso">{{ aviso() }}</p>
@@ -57,7 +61,7 @@
             <td>{{ c.telefono }}</td>
             <td>{{ c.direccion }}</td>
             @if (auth.esAdmin()) {
-              <td>{{ c.activo ? 'Activo' : 'De baja' }}</td>
+              <td><span class="estado" [class.entregado]="c.activo" [class.cancelado]="!c.activo">{{ c.activo ? 'Activo' : 'De baja' }}</span></td>
             }
             <td class="acciones">
               <button type="button" class="secundario" (click)="verHistorial(c)">

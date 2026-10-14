@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
 import { Proveedor } from '../core/models';
+import { Icono } from '../shared/icono';
 
 interface Formulario {
   nombre: string;
@@ -14,7 +15,7 @@ const VACIO: Formulario = { nombre: '', ruc: '', telefono: '', direccion: '' };
 
 @Component({
   selector: 'app-proveedores',
-  imports: [FormsModule],
+  imports: [FormsModule, Icono],
   templateUrl: './proveedores.html',
 })
 export class Proveedores {

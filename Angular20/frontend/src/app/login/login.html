@@ -1,31 +1,34 @@
-<main class="tarjeta login">
-  <h1>Kolben</h1>
-  <p>Inicia sesión para continuar</p>
+<main class="autenticacion">
+  <div class="tarjeta panel-auth">
+    <span class="marca">
+      <span class="marca-icono"><app-icono nombre="logo" [tamano]="20" /></span>
+      Kolben
+    </span>
+    <h1>Inicia sesión</h1>
+    <p>Ingresa con tu usuario para continuar.</p>
 
-  <form (ngSubmit)="entrar()">
-    <label>
-      Usuario
-      <input name="usuario" [(ngModel)]="usuario" autocomplete="username" required autofocus />
-    </label>
-    <label>
-      Contraseña
-      <input
-        name="password"
-        type="password"
-        [(ngModel)]="password"
-        autocomplete="current-password"
-        required
-      />
-    </label>
+    <form (ngSubmit)="entrar()">
+      <label>
+        Usuario
+        <input name="usuario" [(ngModel)]="usuario" autocomplete="username" required autofocus />
+      </label>
+      <label>
+        Contraseña
+        <input name="password" type="password" [(ngModel)]="password" autocomplete="current-password" required />
+      </label>
 
-    @if (error()) {
-      <p class="error">{{ error() }}</p>
-    }
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
 
-    <button type="submit" [disabled]="cargando() || !usuario || !password">
-      {{ cargando() ? 'Entrando…' : 'Entrar' }}
-    </button>
-  </form>
+      <button type="submit" [disabled]="cargando() || !usuario || !password">
+        {{ cargando() ? 'Entrando…' : 'Entrar' }}
+      </button>
+    </form>
 
-  <p>¿Eres cliente y no tienes cuenta? <a routerLink="/registro" [queryParams]="ruta.snapshot.queryParams">Crear cuenta</a></p>
+    <p class="alterno">
+      ¿Eres cliente y no tienes cuenta?
+      <a routerLink="/registro" [queryParams]="ruta.snapshot.queryParams">Crear cuenta</a>
+    </p>
+  </div>
 </main>

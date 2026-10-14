@@ -3,6 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
 import { FilaMasVendido, FilaStockModelo, Modelo, ReporteVentas } from '../core/models';
+import { Icono } from '../shared/icono';
 
 type Pestana = 'ventas' | 'stock' | 'vendidos';
 
@@ -23,7 +24,7 @@ function formatear(fecha: Date): string {
 
 @Component({
   selector: 'app-reportes',
-  imports: [FormsModule, DecimalPipe],
+  imports: [FormsModule, DecimalPipe, Icono],
   templateUrl: './reportes.html',
 })
 export class Reportes {
@@ -100,6 +101,10 @@ export class Reportes {
     if (this.agrupar === 'mes') return `${m}/${a}`;
     if (this.agrupar === 'semana') return `Semana del ${d}/${m}/${a}`;
     return `${d}/${m}/${a}`;
+  }
+
+  protected promedio(r: ReporteVentas): number {
+    return r.resumen.ventas ? Number(r.resumen.total) / r.resumen.ventas : 0;
   }
 
   protected imprimir() {
