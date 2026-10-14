@@ -9,6 +9,7 @@ import { MisPedidos } from './mis-pedidos/mis-pedidos';
 import { Pedidos } from './pedidos/pedidos';
 import { Proveedores } from './proveedores/proveedores';
 import { Registro } from './registro/registro';
+import { Reportes } from './reportes/reportes';
 import { Repuestos } from './repuestos/repuestos';
 import { Usuarios } from './usuarios/usuarios';
 import { Ventas } from './ventas/ventas';
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'proveedores', component: Proveedores, canActivate: [adminGuard] },
   { path: 'ingresos', component: Ingresos, canActivate: [adminGuard] },
   { path: 'usuarios', component: Usuarios, canActivate: [adminGuard] },
+  { path: 'reportes', component: Reportes, canActivate: [adminGuard] },
   // Inicio: el personal pasa directo a ventas; los demás ven el catálogo
   { path: '', pathMatch: 'full', component: Catalogo, canActivate: [inicioGuard] },
   { path: '**', redirectTo: '' },

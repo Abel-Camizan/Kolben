@@ -127,3 +127,37 @@ export interface UsuarioAdmin extends Usuario {
   activo: boolean;
   creado_en: string;
 }
+
+export interface FilaVentasPeriodo {
+  periodo: string;
+  ventas: number;
+  total: string;
+}
+
+export interface ReporteVentas {
+  desde: string;
+  hasta: string;
+  agrupar: 'dia' | 'semana' | 'mes';
+  filas: FilaVentasPeriodo[];
+  resumen: { ventas: number; total: string };
+}
+
+export interface FilaStockModelo {
+  modelo_id: number;
+  modelo: string;
+  repuesto_id: number;
+  codigo: string;
+  nombre: string;
+  stock: number;
+  stock_minimo: number;
+  precio: string;
+  bajo_minimo: boolean;
+}
+
+export interface FilaMasVendido {
+  repuesto_id: number;
+  codigo: string;
+  nombre: string;
+  unidades: number;
+  ingresos: string;
+}

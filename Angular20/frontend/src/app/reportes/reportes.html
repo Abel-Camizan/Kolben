@@ -1,0 +1,124 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Reportes</h2>
+    <button type="button" class="secundario no-imprimir" (click)="imprimir()">Imprimir</button>
+  </div>
+
+  <div class="pestanas no-imprimir">
+    <button type="button" [class.secundario]="pestana !== 'ventas'" (click)="elegir('ventas')">Ventas por periodo</button>
+    <button type="button" [class.secundario]="pestana !== 'stock'" (click)="elegir('stock')">Stock por modelo</button>
+    <button type="button" [class.secundario]="pestana !== 'vendidos'" (click)="elegir('vendidos')">Más vendidos</button>
+  </div>
+
+  <div class="filtros no-imprimir">
+    @if (pestana !== 'stock') {
+      <label>Desde <input name="desde" type="date" [(ngModel)]="desde" (ngModelChange)="cargar()" /></label>
+      <label>Hasta <input name="hasta" type="date" [(ngModel)]="hasta" (ngModelChange)="cargar()" /></label>
+    }
+    @if (pestana === 'ventas') {
+      <label>
+        Agrupar por
+        <select name="agrupar" [(ngModel)]="agrupar" (ngModelChange)="cargar()">
+          <option value="dia">Día</option>
+          <option value="semana">Semana</option>
+          <option value="mes">Mes</option>
+        </select>
+      </label>
+    } @else {
+      <label>
+        Modelo de moto
+        <select name="modelo" [(ngModel)]="modeloId" (ngModelChange)="cargar()">
+          <option [ngValue]="null">Todos los modelos</option>
+          @for (m of modelos(); track m.id) {
+            <option [ngValue]="m.id">{{ m.nombre }}</option>
+          }
+        </select>
+      </label>
+    }
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @switch (pestana) {
+    @case ('ventas') {
+      @if (ventas(); as r) {
+        <h3>Ventas del {{ r.desde }} al {{ r.hasta }}</h3>
+        <table>
+          <thead>
+            <tr><th>Periodo</th><th>N.º de ventas</th><th>Total vendido</th></tr>
+          </thead>
+          <tbody>
+            @for (f of r.filas; track f.periodo) {
+              <tr>
+                <td>{{ etiquetaPeriodo(f.periodo) }}</td>
+                <td>{{ f.ventas }}</td>
+                <td>S/ {{ f.total | number: '1.2-2' }}</td>
+              </tr>
+            } @empty {
+              <tr><td colspan="3">No hay ventas en este rango.</td></tr>
+            }
+          </tbody>
+          <tfoot>
+            <tr><th>Total</th><th>{{ r.resumen.ventas }}</th><th>S/ {{ r.resumen.total | number: '1.2-2' }}</th></tr>
+          </tfoot>
+        </table>
+      }
+    }
+
+    @case ('stock') {
+      <h3>Stock actual por modelo de moto</h3>
+      <p><small>Un repuesto compatible con varios modelos aparece en cada uno de ellos.</small></p>
+      @for (g of grupos(); track g.modelo) {
+        <h4>
+          {{ g.modelo }}
+          <small>
+            · {{ g.filas.length }} repuestos · {{ g.unidades }} unidades · valor S/ {{ g.valor | number: '1.2-2' }}
+            @if (g.bajoMinimo > 0) { · <span class="agotado">{{ g.bajoMinimo }} en stock mínimo</span> }
+          </small>
+        </h4>
+        <table>
+          <thead>
+            <tr><th>Código</th><th>Repuesto</th><th>Stock</th><th>Mínimo</th><th>Precio</th></tr>
+          </thead>
+          <tbody>
+            @for (f of g.filas; track f.repuesto_id) {
+              <tr>
+                <td>{{ f.codigo }}</td>
+                <td>{{ f.nombre }}</td>
+                <td [class.agotado]="f.bajo_minimo">{{ f.stock }}</td>
+                <td>{{ f.stock_minimo }}</td>
+                <td>S/ {{ f.precio }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } @empty {
+        <p>No hay repuestos con modelos asignados. Asigna los modelos compatibles en la pantalla Repuestos.</p>
+      }
+    }
+
+    @case ('vendidos') {
+      <h3>Repuestos más vendidos</h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Código</th><th>Repuesto</th><th>Unidades</th><th>Ingresos</th></tr>
+        </thead>
+        <tbody>
+          @for (f of vendidos(); track f.repuesto_id; let i = $index) {
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ f.codigo }}</td>
+              <td>{{ f.nombre }}</td>
+              <td>{{ f.unidades }}</td>
+              <td>S/ {{ f.ingresos | number: '1.2-2' }}</td>
+            </tr>
+          } @empty {
+            <tr><td colspan="5">No hay ventas en este rango.</td></tr>
+          }
+        </tbody>
+      </table>
+    }
+  }
+</section>
