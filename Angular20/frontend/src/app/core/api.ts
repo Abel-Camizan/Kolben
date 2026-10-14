@@ -1,7 +1,16 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { API_URL } from './auth';
-import { Comprobante, DatosRepuesto, ItemCatalogo, Modelo, Pedido, Repuesto } from './models';
+import {
+  Comprobante,
+  DatosRepuesto,
+  Ingreso,
+  ItemCatalogo,
+  Modelo,
+  Pedido,
+  Proveedor,
+  Repuesto,
+} from './models';
 
 @Injectable({ providedIn: 'root' })
 export class Api {
@@ -47,6 +56,41 @@ export class Api {
 
   accionPedido(id: number, accion: 'cancelar' | 'confirmar' | 'entregar') {
     return this.http.post<Pedido>(`${API_URL}/pedidos/${id}/${accion}`, {});
+  }
+
+  // --- Proveedores e ingresos de mercadería (administrador) ---
+  proveedores(todos = false) {
+    let params = new HttpParams();
+    if (todos) params = params.set('todos', '1');
+    return this.http.get<Proveedor[]>(`${API_URL}/proveedores`, { params });
+  }
+
+  crearProveedor(datos: Partial<Proveedor>) {
+    return this.http.post<Proveedor>(`${API_URL}/proveedores`, datos);
+  }
+
+  editarProveedor(id: number, datos: Partial<Proveedor>) {
+    return this.http.patch<Proveedor>(`${API_URL}/proveedores/${id}`, datos);
+  }
+
+  ingresos() {
+    return this.http.get<Ingreso[]>(`${API_URL}/ingresos`);
+  }
+
+  ingreso(id: number) {
+    return this.http.get<Ingreso>(`${API_URL}/ingresos/${id}`);
+  }
+
+  registrarIngreso(
+    proveedorId: number,
+    observacion: string,
+    items: { repuesto_id: number; cantidad: number; costo_unit: number }[],
+  ) {
+    return this.http.post<Ingreso>(`${API_URL}/ingresos`, {
+      proveedor_id: proveedorId,
+      observacion,
+      items,
+    });
   }
 
   marcas() {
