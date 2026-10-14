@@ -4,12 +4,15 @@ import { API_URL } from './auth';
 import {
   Comprobante,
   DatosRepuesto,
+  FilaMasVendido,
+  FilaStockModelo,
   Ingreso,
   ItemCatalogo,
   Modelo,
   Pedido,
   Proveedor,
   Repuesto,
+  ReporteVentas,
   UsuarioAdmin,
 } from './models';
 
@@ -108,6 +111,27 @@ export class Api {
     datos: { nombre?: string; rol?: string; activo?: boolean; password?: string },
   ) {
     return this.http.patch<UsuarioAdmin>(`${API_URL}/usuarios/${id}`, datos);
+  }
+
+  // --- Reportes (administrador) ---
+  reporteVentas(desde: string, hasta: string, agrupar: string) {
+    const params = new HttpParams().set('desde', desde).set('hasta', hasta).set('agrupar', agrupar);
+    return this.http.get<ReporteVentas>(`${API_URL}/reportes/ventas`, { params });
+  }
+
+  reporteStock(modeloId: number | null) {
+    let params = new HttpParams();
+    if (modeloId) params = params.set('modelo_id', modeloId);
+    return this.http.get<FilaStockModelo[]>(`${API_URL}/reportes/stock`, { params });
+  }
+
+  reporteMasVendidos(desde: string, hasta: string, modeloId: number | null) {
+    let params = new HttpParams().set('desde', desde).set('hasta', hasta);
+    if (modeloId) params = params.set('modelo_id', modeloId);
+    return this.http.get<{ desde: string; hasta: string; filas: FilaMasVendido[] }>(
+      `${API_URL}/reportes/mas-vendidos`,
+      { params },
+    );
   }
 
   marcas() {
