@@ -1,0 +1,29 @@
+<main class="tarjeta login">
+  <h1>Kolben</h1>
+  <p>Inicia sesión para continuar</p>
+
+  <form (ngSubmit)="entrar()">
+    <label>
+      Usuario
+      <input name="usuario" [(ngModel)]="usuario" autocomplete="username" required autofocus />
+    </label>
+    <label>
+      Contraseña
+      <input
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        autocomplete="current-password"
+        required
+      />
+    </label>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button type="submit" [disabled]="cargando() || !usuario || !password">
+      {{ cargando() ? 'Entrando…' : 'Entrar' }}
+    </button>
+  </form>
+</main>

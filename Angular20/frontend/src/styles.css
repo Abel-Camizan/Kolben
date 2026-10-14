@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos mínimos para probar; el diseño se pule más adelante */
+body { font-family: system-ui, sans-serif; margin: 0; background: #f4f5f7; color: #222; }
+.barra { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; background: #1f2937; color: #fff; }
+.barra .usuario { display: flex; gap: 0.75rem; align-items: center; }
+.tarjeta { background: #fff; border-radius: 8px; padding: 1rem; margin: 1rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
+.login { max-width: 22rem; margin: 3rem auto; }
+.login form, .login label { display: flex; flex-direction: column; gap: 0.75rem; }
+.dos-columnas { display: grid; grid-template-columns: 3fr 2fr; gap: 0; align-items: start; }
+.filtros { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.filtros input { flex: 1; min-width: 10rem; }
+input, select { padding: 0.45rem; border: 1px solid #c4c8d0; border-radius: 4px; font: inherit; }
+input.cantidad { width: 4.5rem; }
+button { padding: 0.45rem 0.9rem; border: 0; border-radius: 4px; background: #2563eb; color: #fff; font: inherit; cursor: pointer; }
+button:disabled { background: #9ca3af; cursor: not-allowed; }
+button.secundario { background: #e5e7eb; color: #222; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 0.75rem; }
+th, td { text-align: left; padding: 0.4rem; border-bottom: 1px solid #e5e7eb; }
+small { display: block; color: #6b7280; }
+.agotado { color: #b91c1c; font-weight: bold; }
+.error { color: #b91c1c; }
+.acciones { display: flex; gap: 0.5rem; }
+
+@media (max-width: 800px) {
+  .dos-columnas { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .no-imprimir { display: none !important; }
+  body { background: #fff; }
+  .tarjeta { box-shadow: none; }
+}

@@ -1,0 +1,128 @@
+@if (comprobante(); as c) {
+  <section class="tarjeta comprobante">
+    <h2>Comprobante {{ c.numero }}</h2>
+    <p>
+      {{ c.fecha | date: 'dd/MM/yyyy HH:mm' }} · Vendedor: {{ c.vendedor }}
+      @if (c.cliente) { · Cliente: {{ c.cliente }} }
+    </p>
+    <table>
+      <thead>
+        <tr><th>Código</th><th>Repuesto</th><th>Cant.</th><th>P. unit.</th><th>Subtotal</th></tr>
+      </thead>
+      <tbody>
+        @for (i of c.items; track i.repuesto_id) {
+          <tr>
+            <td>{{ i.codigo }}</td>
+            <td>{{ i.nombre }}</td>
+            <td>{{ i.cantidad }}</td>
+            <td>S/ {{ i.precio_unitario }}</td>
+            <td>S/ {{ i.subtotal }}</td>
+          </tr>
+        }
+      </tbody>
+      <tfoot>
+        <tr><th colspan="4">Total</th><th>S/ {{ c.total }}</th></tr>
+      </tfoot>
+    </table>
+    <div class="acciones no-imprimir">
+      <button type="button" (click)="imprimir()">Imprimir</button>
+      <button type="button" class="secundario" (click)="nuevaVenta()">Nueva venta</button>
+    </div>
+  </section>
+} @else {
+  <div class="dos-columnas">
+    <section class="tarjeta">
+      <h2>Buscar repuesto</h2>
+      <div class="filtros">
+        <input
+          name="texto"
+          placeholder="Nombre o código"
+          [(ngModel)]="texto"
+          (ngModelChange)="buscarConRetraso()"
+        />
+        <select name="modelo" [(ngModel)]="modeloId" (ngModelChange)="buscar()">
+          <option [ngValue]="null">Todos los modelos</option>
+          @for (m of modelos(); track m.id) {
+            <option [ngValue]="m.id">{{ m.nombre }}</option>
+          }
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Código</th><th>Repuesto</th><th>Precio</th><th>Stock</th><th></th></tr>
+        </thead>
+        <tbody>
+          @for (r of resultados(); track r.id) {
+            <tr>
+              <td>{{ r.codigo }}</td>
+              <td>
+                {{ r.nombre }}
+                <small>{{ r.marca }}</small>
+              </td>
+              <td>S/ {{ r.precio }}</td>
+              <td [class.agotado]="r.stock === 0">{{ r.stock }}</td>
+              <td>
+                <button
+                  type="button"
+                  (click)="agregar(r)"
+                  [disabled]="r.stock === 0 || enCarrito(r) >= r.stock"
+                >
+                  Agregar
+                </button>
+              </td>
+            </tr>
+          } @empty {
+            <tr><td colspan="5">No hay repuestos que coincidan.</td></tr>
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Venta actual</h2>
+      @if (carrito().length === 0) {
+        <p>Agrega repuestos desde el buscador.</p>
+      } @else {
+        <table>
+          <thead>
+            <tr><th>Repuesto</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+          </thead>
+          <tbody>
+            @for (l of carrito(); track l.repuesto.id) {
+              <tr>
+                <td>{{ l.repuesto.nombre }}</td>
+                <td>
+                  <input
+                    type="number"
+                    class="cantidad"
+                    min="1"
+                    [max]="l.repuesto.stock"
+                    [ngModel]="l.cantidad"
+                    (ngModelChange)="cambiarCantidad(l.repuesto.id, $event)"
+                    [name]="'cant' + l.repuesto.id"
+                  />
+                </td>
+                <td>S/ {{ subtotal(l) | number: '1.2-2' }}</td>
+                <td><button type="button" class="secundario" (click)="quitar(l.repuesto.id)">Quitar</button></td>
+              </tr>
+            }
+          </tbody>
+          <tfoot>
+            <tr><th colspan="2">Total</th><th colspan="2">S/ {{ total() | number: '1.2-2' }}</th></tr>
+          </tfoot>
+        </table>
+
+        @if (error()) {
+          <p class="error">{{ error() }}</p>
+        }
+        <button type="button" (click)="registrar()" [disabled]="enviando()">
+          {{ enviando() ? 'Registrando…' : 'Registrar venta' }}
+        </button>
+      }
+      @if (carrito().length === 0 && error()) {
+        <p class="error">{{ error() }}</p>
+      }
+    </section>
+  </div>
+}
