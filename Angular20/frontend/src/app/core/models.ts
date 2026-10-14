@@ -92,3 +92,32 @@ export interface Comprobante {
   cliente: string | null;
   items: ItemComprobante[];
 }
+
+export interface Proveedor {
+  id: number;
+  nombre: string;
+  ruc: string | null;
+  telefono: string | null;
+  direccion: string | null;
+  activo: boolean;
+}
+
+export interface ItemIngreso {
+  repuesto_id: number;
+  codigo: string;
+  nombre: string;
+  cantidad: number;
+  costo_unit: string;
+  subtotal: string;
+}
+
+export interface Ingreso {
+  id: number;
+  fecha: string;
+  observacion: string | null;
+  proveedor_id: number;
+  proveedor: string;
+  registrado_por: string;
+  total: string;
+  items?: ItemIngreso[]; // solo viene en el detalle de un ingreso
+}

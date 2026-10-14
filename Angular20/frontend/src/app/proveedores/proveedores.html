@@ -1,0 +1,59 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Proveedores</h2>
+    @if (!mostrarFormulario) {
+      <button type="button" (click)="nuevo()">Nuevo proveedor</button>
+    }
+  </div>
+
+  @if (aviso()) {
+    <p class="aviso">{{ aviso() }}</p>
+  }
+  @if (error() && !mostrarFormulario) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (mostrarFormulario) {
+    <form (ngSubmit)="guardar()" class="formulario">
+      <h3>{{ editandoId === null ? 'Nuevo proveedor' : 'Editar proveedor' }}</h3>
+
+      <label>Nombre o razón social <input name="nombre" [(ngModel)]="formulario.nombre" required /></label>
+      <label>RUC (opcional) <input name="ruc" [(ngModel)]="formulario.ruc" inputmode="numeric" maxlength="11" /></label>
+      <label>Teléfono (opcional) <input name="telefono" [(ngModel)]="formulario.telefono" inputmode="tel" /></label>
+      <label>Dirección (opcional) <input name="direccion" [(ngModel)]="formulario.direccion" /></label>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      <div class="acciones">
+        <button type="submit" [disabled]="guardando()">{{ guardando() ? 'Guardando…' : 'Guardar' }}</button>
+        <button type="button" class="secundario" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  } @else {
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>RUC</th><th>Teléfono</th><th>Dirección</th><th>Estado</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (p of lista(); track p.id) {
+          <tr [class.inactivo]="!p.activo">
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.ruc }}</td>
+            <td>{{ p.telefono }}</td>
+            <td>{{ p.direccion }}</td>
+            <td>{{ p.activo ? 'Activo' : 'De baja' }}</td>
+            <td class="acciones">
+              <button type="button" class="secundario" (click)="editar(p)">Editar</button>
+              <button type="button" class="secundario" (click)="cambiarEstado(p)">
+                {{ p.activo ? 'Dar de baja' : 'Reactivar' }}
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="6">No hay proveedores. Crea el primero con "Nuevo proveedor".</td></tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

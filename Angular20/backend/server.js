@@ -9,6 +9,8 @@ const repuestosRoutes = require('./routes/repuestos');
 const ventasRoutes = require('./routes/ventas');
 const catalogoRoutes = require('./routes/catalogo');
 const pedidosRoutes = require('./routes/pedidos');
+const proveedoresRoutes = require('./routes/proveedores');
+const ingresosRoutes = require('./routes/ingresos');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -38,6 +40,8 @@ app.use('/api/pedidos', pedidosRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/repuestos', repuestosRoutes);
 app.use('/api/ventas', ventasRoutes);
+app.use('/api/proveedores', proveedoresRoutes);
+app.use('/api/ingresos', ingresosRoutes);
 app.use('/api', catalogosRoutes); // marcas, categorías y modelos (personal)
 
 app.listen(PORT, () => {
