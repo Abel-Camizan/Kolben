@@ -5,6 +5,7 @@
     @if (auth.esPersonal()) {
       <a routerLink="/ventas" routerLinkActive="activo">Ventas</a>
       <a routerLink="/pedidos" routerLinkActive="activo">Pedidos</a>
+      <a routerLink="/clientes" routerLinkActive="activo">Clientes</a>
       @if (auth.esAdmin()) {
         <a routerLink="/repuestos" routerLinkActive="activo">Repuestos</a>
         <a routerLink="/proveedores" routerLinkActive="activo">Proveedores</a>

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { adminGuard } from './core/admin-guard';
 import { clienteGuard, inicioGuard, personalGuard } from './core/auth-guard';
 import { Carrito } from './carrito/carrito';
+import { Clientes } from './clientes/clientes';
 import { Catalogo } from './catalogo/catalogo';
 import { Ingresos } from './ingresos/ingresos';
 import { Login } from './login/login';
@@ -25,6 +26,7 @@ export const routes: Routes = [
   // Personal (administrador y vendedor)
   { path: 'ventas', component: Ventas, canActivate: [personalGuard] },
   { path: 'pedidos', component: Pedidos, canActivate: [personalGuard] },
+  { path: 'clientes', component: Clientes, canActivate: [personalGuard] },
   // Solo administrador
   { path: 'repuestos', component: Repuestos, canActivate: [adminGuard] },
   { path: 'proveedores', component: Proveedores, canActivate: [adminGuard] },

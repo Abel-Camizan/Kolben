@@ -81,6 +81,35 @@
 
     <section class="tarjeta">
       <h2>Venta actual</h2>
+
+      <div class="cliente-venta">
+        @if (cliente(); as c) {
+          <p>
+            Cliente: <strong>{{ c.nombre }}</strong>
+            @if (c.documento) { ({{ c.documento }}) }
+            <button type="button" class="secundario" (click)="quitarCliente()">Quitar</button>
+          </p>
+        } @else {
+          <input
+            name="textoCliente"
+            placeholder="Cliente (opcional): nombre o documento"
+            [(ngModel)]="textoCliente"
+            (ngModelChange)="buscarClienteConRetraso()"
+            autocomplete="off"
+          />
+          @if (sugerencias().length > 0) {
+            <ul class="sugerencias">
+              @for (s of sugerencias(); track s.id) {
+                <li>
+                  <button type="button" class="secundario" (click)="elegirCliente(s)">
+                    {{ s.nombre }} @if (s.documento) { · {{ s.documento }} }
+                  </button>
+                </li>
+              }
+            </ul>
+          }
+        }
+      </div>
       @if (carrito().length === 0) {
         <p>Agrega repuestos desde el buscador.</p>
       } @else {

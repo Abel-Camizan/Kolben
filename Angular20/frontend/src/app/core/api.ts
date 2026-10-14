@@ -2,6 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { API_URL } from './auth';
 import {
+  Cliente,
+  ClienteDetalle,
   Comprobante,
   DatosRepuesto,
   FilaMasVendido,
@@ -134,6 +136,26 @@ export class Api {
     );
   }
 
+  // --- Clientes (personal) ---
+  clientes(q: string, todos = false) {
+    let params = new HttpParams();
+    if (q.trim()) params = params.set('q', q.trim());
+    if (todos) params = params.set('todos', '1');
+    return this.http.get<Cliente[]>(`${API_URL}/clientes`, { params });
+  }
+
+  cliente(id: number) {
+    return this.http.get<ClienteDetalle>(`${API_URL}/clientes/${id}`);
+  }
+
+  crearCliente(datos: Partial<Cliente>) {
+    return this.http.post<Cliente>(`${API_URL}/clientes`, datos);
+  }
+
+  editarCliente(id: number, datos: Partial<Cliente>) {
+    return this.http.patch<Cliente>(`${API_URL}/clientes/${id}`, datos);
+  }
+
   marcas() {
     return this.http.get<Modelo[]>(`${API_URL}/marcas`);
   }
@@ -165,7 +187,7 @@ export class Api {
     return this.http.patch<Repuesto>(`${API_URL}/repuestos/${id}`, datos);
   }
 
-  registrarVenta(items: { repuesto_id: number; cantidad: number }[]) {
-    return this.http.post<Comprobante>(`${API_URL}/ventas`, { items });
+  registrarVenta(items: { repuesto_id: number; cantidad: number }[], clienteId: number | null = null) {
+    return this.http.post<Comprobante>(`${API_URL}/ventas`, { items, cliente_id: clienteId });
   }
 }

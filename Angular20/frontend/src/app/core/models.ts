@@ -161,3 +161,26 @@ export interface FilaMasVendido {
   unidades: number;
   ingresos: string;
 }
+
+export interface Cliente {
+  id: number;
+  nombre: string;
+  documento: string | null;
+  telefono: string | null;
+  direccion: string | null;
+  activo: boolean;
+  creado_en: string;
+}
+
+export interface VentaCliente {
+  id: number;
+  numero: string;
+  fecha: string;
+  total: string;
+  vendedor: string;
+}
+
+export interface ClienteDetalle extends Cliente {
+  resumen: { compras: number; total: string; ultima: string | null };
+  historial: VentaCliente[];
+}

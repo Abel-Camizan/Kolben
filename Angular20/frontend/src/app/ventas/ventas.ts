@@ -2,7 +2,7 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
-import { Comprobante, Modelo, Repuesto } from '../core/models';
+import { Cliente, Comprobante, Modelo, Repuesto } from '../core/models';
 
 interface LineaCarrito {
   repuesto: Repuesto;
@@ -24,9 +24,15 @@ export class Ventas {
   protected readonly error = signal('');
   protected readonly enviando = signal(false);
 
+  // Cliente asociado a la venta (opcional)
+  protected readonly cliente = signal<Cliente | null>(null);
+  protected readonly sugerencias = signal<Cliente[]>([]);
+  protected textoCliente = '';
+
   protected texto = '';
   protected modeloId: number | null = null;
   private temporizador?: ReturnType<typeof setTimeout>;
+  private temporizadorCliente?: ReturnType<typeof setTimeout>;
 
   protected readonly total = computed(() =>
     this.carrito().reduce((suma, l) => suma + Number(l.repuesto.precio) * l.cantidad, 0),
@@ -41,6 +47,28 @@ export class Ventas {
   protected buscarConRetraso() {
     clearTimeout(this.temporizador);
     this.temporizador = setTimeout(() => this.buscar(), 300);
+  }
+
+  protected buscarClienteConRetraso() {
+    clearTimeout(this.temporizadorCliente);
+    if (this.textoCliente.trim().length < 2) {
+      this.sugerencias.set([]);
+      return;
+    }
+    this.temporizadorCliente = setTimeout(
+      () => this.api.clientes(this.textoCliente).subscribe((c) => this.sugerencias.set(c.slice(0, 5))),
+      300,
+    );
+  }
+
+  protected elegirCliente(c: Cliente) {
+    this.cliente.set(c);
+    this.sugerencias.set([]);
+    this.textoCliente = '';
+  }
+
+  protected quitarCliente() {
+    this.cliente.set(null);
   }
 
   protected buscar() {
@@ -88,11 +116,12 @@ export class Ventas {
     this.error.set('');
     this.enviando.set(true);
     const items = this.carrito().map((l) => ({ repuesto_id: l.repuesto.id, cantidad: l.cantidad }));
-    this.api.registrarVenta(items).subscribe({
+    this.api.registrarVenta(items, this.cliente()?.id ?? null).subscribe({
       next: (c) => {
         this.enviando.set(false);
         this.comprobante.set(c);
         this.carrito.set([]);
+        this.cliente.set(null);
         this.buscar(); // refresca el stock
       },
       error: (e) => {
