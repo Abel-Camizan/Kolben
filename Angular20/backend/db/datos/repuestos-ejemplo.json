@@ -1,0 +1,2520 @@
+[
+ {
+  "codigo": "G4321840",
+  "nombre": "Kit de zapatas de freno (moderno)",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 38.0,
+  "stock": 20,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4110140",
+  "nombre": "Zapata de freno",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 28.0,
+  "stock": 26,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2110320",
+  "nombre": "Kit de zapatas de freno (sistema manual)",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 40.0,
+  "stock": 0,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2111340",
+  "nombre": "Forro de zapatas",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 22.0,
+  "stock": 56,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2110390",
+  "nombre": "Tambor de freno",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 95.0,
+  "stock": 16,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4110100",
+  "nombre": "Resorte de zapata superior",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 4.0,
+  "stock": 74,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2110350",
+  "nombre": "Resorte de zapata",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 4.0,
+  "stock": 41,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5170070",
+  "nombre": "Cable y funda de freno de estacionamiento",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 24.0,
+  "stock": 43,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G3120200",
+  "nombre": "Pedal de freno",
+  "marca": "TVS",
+  "categoria": "Frenos",
+  "precio": 45.0,
+  "stock": 12,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5321210",
+  "nombre": "Kit de cable de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 32.0,
+  "stock": 24,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5320150",
+  "nombre": "Cable de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 18.0,
+  "stock": 28,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070280",
+  "nombre": "Disco de embrague tipo C",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 72.0,
+  "stock": 22,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070290",
+  "nombre": "Disco de embrague tipo B",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 70.0,
+  "stock": 20,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070340",
+  "nombre": "Plato de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 55.0,
+  "stock": 18,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070010",
+  "nombre": "Kit de embrague completo",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 210.0,
+  "stock": 11,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4071090",
+  "nombre": "Resorte de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 6.0,
+  "stock": 46,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070250",
+  "nombre": "Cubo de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 85.0,
+  "stock": 23,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5150110",
+  "nombre": "Manija de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 18.0,
+  "stock": 47,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4030080",
+  "nombre": "Empaquetadura de tapa de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 7.0,
+  "stock": 81,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4070320",
+  "nombre": "Rueda de embrague",
+  "marca": "TVS",
+  "categoria": "Embrague",
+  "precio": 60.0,
+  "stock": 8,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4320330",
+  "nombre": "Pistón completo STD",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 85.0,
+  "stock": 21,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4320680",
+  "nombre": "Pistón completo 0.50",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 88.0,
+  "stock": 19,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4020090",
+  "nombre": "Pin de pistón",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 8.0,
+  "stock": 105,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M7020340",
+  "nombre": "Anillo superior de pistón",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 12.0,
+  "stock": 47,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4020100",
+  "nombre": "Anillo segundo de pistón",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 10.0,
+  "stock": 19,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4020210",
+  "nombre": "Anillo de aceite 4T",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 9.0,
+  "stock": 102,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4011430",
+  "nombre": "Cilindro",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 280.0,
+  "stock": 4,
+  "stock_minimo": 1,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4322960",
+  "nombre": "Cilindro y pistón completo",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 420.0,
+  "stock": 4,
+  "stock_minimo": 1,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M7010210",
+  "nombre": "Empaquetadura de culata",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 18.0,
+  "stock": 55,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4010070",
+  "nombre": "Empaquetadura de cilindro",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 8.0,
+  "stock": 80,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4320710",
+  "nombre": "Kit de empaquetaduras del motor",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 55.0,
+  "stock": 14,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4320720",
+  "nombre": "Kit de empaquetaduras de culata",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 38.0,
+  "stock": 3,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4010140",
+  "nombre": "Cadena de levas",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 48.0,
+  "stock": 20,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4320770",
+  "nombre": "Kit de cadena de leva 4T",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 75.0,
+  "stock": 6,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M1010180",
+  "nombre": "Templador de cadena",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 35.0,
+  "stock": 21,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M7010280",
+  "nombre": "Válvula de escape",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 28.0,
+  "stock": 15,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4080240",
+  "nombre": "Tapa de filtro de aceite",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 28.0,
+  "stock": 48,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M1080620",
+  "nombre": "Resorte de filtro de aceite",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 5.0,
+  "stock": 105,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "M1080600",
+  "nombre": "O-ring de filtro de aceite",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 3.0,
+  "stock": 115,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4080400",
+  "nombre": "Varilla medidora de aceite",
+  "marca": "TVS",
+  "categoria": "Motor",
+  "precio": 12.0,
+  "stock": 36,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2200340",
+  "nombre": "Retén de aceite de eje",
+  "marca": "TVS",
+  "categoria": "Rodamientos y retenes",
+  "precio": 6.0,
+  "stock": 75,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2200330",
+  "nombre": "Retén de aceite de cárter lado embrague",
+  "marca": "TVS",
+  "categoria": "Rodamientos y retenes",
+  "precio": 7.0,
+  "stock": 120,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2200320",
+  "nombre": "Retén de aceite de cárter lado magneto",
+  "marca": "TVS",
+  "categoria": "Rodamientos y retenes",
+  "precio": 7.0,
+  "stock": 118,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4040030",
+  "nombre": "Filtro de aire completo",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 35.0,
+  "stock": 28,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4040800",
+  "nombre": "Filtro de papel completo",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 22.0,
+  "stock": 32,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4040980",
+  "nombre": "Elemento de filtro de aire (Duramax)",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 20.0,
+  "stock": 60,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "R1140410",
+  "nombre": "Filtro de combustible de tanque",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 14.0,
+  "stock": 1,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4040330",
+  "nombre": "Manguera de filtro de aire",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 16.0,
+  "stock": 36,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2320740",
+  "nombre": "Empaquetadura de carburador 4T",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 5.0,
+  "stock": 52,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4040460",
+  "nombre": "Empaquetadura de tubo de admisión",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 6.0,
+  "stock": 103,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4170020",
+  "nombre": "Cable y funda de acelerador con TPS",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 26.0,
+  "stock": 23,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4170190",
+  "nombre": "Cable y funda de acelerador sin TPS",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 22.0,
+  "stock": 37,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4170010",
+  "nombre": "Cable y funda de choke",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 15.0,
+  "stock": 40,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5140330",
+  "nombre": "Grifo de combustible",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 35.0,
+  "stock": 24,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5140680",
+  "nombre": "Tapa de tanque de 8 L",
+  "marca": "TVS",
+  "categoria": "Alimentación y admisión",
+  "precio": 28.0,
+  "stock": 36,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4050440",
+  "nombre": "Silenciador completo",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 185.0,
+  "stock": 4,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4050390",
+  "nombre": "Silenciador completo 4T",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 195.0,
+  "stock": 12,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4050569",
+  "nombre": "Tubo de escape",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 90.0,
+  "stock": 10,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4050459",
+  "nombre": "Codo de escape",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 45.0,
+  "stock": 18,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "N9053170",
+  "nombre": "Empaquetadura de tubo de escape",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 6.0,
+  "stock": 96,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4321280",
+  "nombre": "Kit de empaquetaduras de tubo de escape",
+  "marca": "TVS",
+  "categoria": "Escape",
+  "precio": 15.0,
+  "stock": 44,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4060290",
+  "nombre": "Regulador de voltaje",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 55.0,
+  "stock": 21,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5060290",
+  "nombre": "Regulador de voltaje monofásico",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 60.0,
+  "stock": 13,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4060250",
+  "nombre": "Bobina de alta con capuchón",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 45.0,
+  "stock": 30,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4060350",
+  "nombre": "Magneto completo de 12 bobinas",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 210.0,
+  "stock": 4,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5160930",
+  "nombre": "Relay de arrancador",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 38.0,
+  "stock": 19,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "N9324040",
+  "nombre": "Fusible de 20 A",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 1.5,
+  "stock": 44,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5160550",
+  "nombre": "Fusible de 15 A",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 1.0,
+  "stock": 76,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G3070050",
+  "nombre": "Bocina",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 28.0,
+  "stock": 59,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2090060",
+  "nombre": "Bocina de trapecio",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 30.0,
+  "stock": 22,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5321420",
+  "nombre": "Cable de velocímetro",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 14.0,
+  "stock": 20,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4170300",
+  "nombre": "Cable y funda de velocímetro",
+  "marca": "TVS",
+  "categoria": "Eléctrico",
+  "precio": 16.0,
+  "stock": 28,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4100180",
+  "nombre": "Amortiguador delantero completo",
+  "marca": "TVS",
+  "categoria": "Suspensión",
+  "precio": 120.0,
+  "stock": 11,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2090100",
+  "nombre": "Amortiguador posterior completo",
+  "marca": "TVS",
+  "categoria": "Suspensión",
+  "precio": 95.0,
+  "stock": 12,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2320440",
+  "nombre": "Resorte de amortiguador posterior",
+  "marca": "TVS",
+  "categoria": "Suspensión",
+  "precio": 25.0,
+  "stock": 16,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5221980",
+  "nombre": "Espejo derecho",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 22.0,
+  "stock": 59,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5221970",
+  "nombre": "Espejo izquierdo",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 22.0,
+  "stock": 51,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G8223270",
+  "nombre": "Espejo derecho (modelo nuevo)",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 24.0,
+  "stock": 57,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G8223260",
+  "nombre": "Espejo izquierdo (modelo nuevo)",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 24.0,
+  "stock": 46,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G5120840",
+  "nombre": "Palanca de arranque completa",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 38.0,
+  "stock": 19,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4130040",
+  "nombre": "Asiento del conductor (negro)",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 130.0,
+  "stock": 2,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4223550",
+  "nombre": "Tablero de instrumentos",
+  "marca": "TVS",
+  "categoria": "Carrocería y mandos",
+  "precio": 160.0,
+  "stock": 11,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G3080070",
+  "nombre": "Piñón estrella de cambios",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 35.0,
+  "stock": 13,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4080220",
+  "nombre": "Piñón de poder",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 40.0,
+  "stock": 6,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G4080230",
+  "nombre": "Piñón de diferencial 4T",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 120.0,
+  "stock": 9,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2080400",
+  "nombre": "Piñón planetario",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 55.0,
+  "stock": 20,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G2081410",
+  "nombre": "Piñón satélite",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 45.0,
+  "stock": 9,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G3320050",
+  "nombre": "Kit de piñón satélite y planetario",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 140.0,
+  "stock": 1,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "G3030150",
+  "nombre": "Empaquetadura de tapa de diferencial",
+  "marca": "TVS",
+  "categoria": "Transmisión",
+  "precio": 9.0,
+  "stock": 103,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax"
+  ]
+ },
+ {
+  "codigo": "AA101865",
+  "nombre": "Pistón completo",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 95.0,
+  "stock": 7,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102087",
+  "nombre": "Kit de anillos de pistón RE4S",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 38.0,
+  "stock": 13,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AN101135",
+  "nombre": "Empaquetadura de block de cilindro",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 9.0,
+  "stock": 41,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AN101149",
+  "nombre": "Empaquetadura de culata",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 18.0,
+  "stock": 20,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101838",
+  "nombre": "Empaquetadura de múltiple",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 8.0,
+  "stock": 81,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF101340",
+  "nombre": "Empaquetadura de cárter",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 10.0,
+  "stock": 15,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101844",
+  "nombre": "Sello de tapa de culata",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 14.0,
+  "stock": 2,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101859",
+  "nombre": "Válvula de admisión",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 28.0,
+  "stock": 56,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101860",
+  "nombre": "Válvula de escape",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 30.0,
+  "stock": 16,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101875",
+  "nombre": "Resorte de válvula",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 6.0,
+  "stock": 74,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "36AA4132",
+  "nombre": "Kit de biela",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 180.0,
+  "stock": 1,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA111153",
+  "nombre": "Bujía con electrodo sólido",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 14.0,
+  "stock": 20,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "DU101223",
+  "nombre": "Tapón de drenaje magnético",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 8.0,
+  "stock": 107,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "35101060",
+  "nombre": "Tapón de aceite",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 5.0,
+  "stock": 17,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF121612",
+  "nombre": "Filtro de aceite",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 18.0,
+  "stock": 51,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102389",
+  "nombre": "Conjunto de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 240.0,
+  "stock": 7,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102162",
+  "nombre": "Plato de embrague completo",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 85.0,
+  "stock": 27,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101472",
+  "nombre": "Disco de fricción de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 22.0,
+  "stock": 7,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102166",
+  "nombre": "Cubo de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 70.0,
+  "stock": 29,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102165",
+  "nombre": "Resorte de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 5.0,
+  "stock": 85,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "DH101795",
+  "nombre": "Rodamiento levantador de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 25.0,
+  "stock": 27,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AN101186",
+  "nombre": "Empaquetadura de tapa de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 8.0,
+  "stock": 61,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA191103",
+  "nombre": "Cable de embrague",
+  "marca": "Bajaj",
+  "categoria": "Embrague",
+  "precio": 18.0,
+  "stock": 4,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102345",
+  "nombre": "Palanca de arranque",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 35.0,
+  "stock": 1,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102363",
+  "nombre": "Eje de arranque (kick)",
+  "marca": "Bajaj",
+  "categoria": "Motor",
+  "precio": 48.0,
+  "stock": 0,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AM121222",
+  "nombre": "Carburador",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 190.0,
+  "stock": 8,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "JA581221",
+  "nombre": "Válvula de aguja completa",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 25.0,
+  "stock": 50,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AM121207",
+  "nombre": "Filtro de aire completo",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 38.0,
+  "stock": 13,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AM121213",
+  "nombre": "Elemento de filtro de aire",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 22.0,
+  "stock": 35,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24141194",
+  "nombre": "Tapa de tanque de combustible",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 32.0,
+  "stock": 27,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA191139",
+  "nombre": "Cable de acelerador",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 18.0,
+  "stock": 55,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA191179",
+  "nombre": "Cable de choke",
+  "marca": "Bajaj",
+  "categoria": "Alimentación y admisión",
+  "precio": 14.0,
+  "stock": 17,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF101986",
+  "nombre": "Silenciador completo",
+  "marca": "Bajaj",
+  "categoria": "Escape",
+  "precio": 210.0,
+  "stock": 2,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AP101194",
+  "nombre": "Empaquetadura de silenciador",
+  "marca": "Bajaj",
+  "categoria": "Escape",
+  "precio": 7.0,
+  "stock": 47,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AZ591064",
+  "nombre": "Empaquetadura de escape",
+  "marca": "Bajaj",
+  "categoria": "Escape",
+  "precio": 7.0,
+  "stock": 59,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "22151106",
+  "nombre": "Tambor de freno (hierro fundido)",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 130.0,
+  "stock": 10,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24151171",
+  "nombre": "Kit de zapatas de freno",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 45.0,
+  "stock": 21,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "BH131814",
+  "nombre": "Palanca de freno de estacionamiento (derecha)",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 30.0,
+  "stock": 7,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA151039",
+  "nombre": "Manguera de freno delantera",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 28.0,
+  "stock": 54,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24151299",
+  "nombre": "Depósito de líquido de frenos",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 24.0,
+  "stock": 35,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24151097",
+  "nombre": "Kit mayor de bomba de freno",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 30.0,
+  "stock": 29,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "BH161017",
+  "nombre": "Soporte de pedal de freno",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 35.0,
+  "stock": 11,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24151164",
+  "nombre": "Cilindro de rueda completo",
+  "marca": "Bajaj",
+  "categoria": "Frenos",
+  "precio": 65.0,
+  "stock": 24,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF151091",
+  "nombre": "Neumático 4.00-8",
+  "marca": "Bajaj",
+  "categoria": "Ruedas y llantas",
+  "precio": 165.0,
+  "stock": 2,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF151089",
+  "nombre": "Aro de rueda 3.00B x 8",
+  "marca": "Bajaj",
+  "categoria": "Ruedas y llantas",
+  "precio": 140.0,
+  "stock": 12,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AL171036",
+  "nombre": "Perno de amortiguador",
+  "marca": "Bajaj",
+  "categoria": "Suspensión",
+  "precio": 9.0,
+  "stock": 46,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA101950",
+  "nombre": "Retén de aceite",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 6.0,
+  "stock": 19,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "39186420",
+  "nombre": "Rodamiento de bolas 20 x 52 x 15",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 16.0,
+  "stock": 56,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "KPBC6204",
+  "nombre": "Rodamiento de bolas 6204 C3",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 12.0,
+  "stock": 58,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "KPBC6301",
+  "nombre": "Rodamiento de bolas 6301 (12 x 37 x 12)",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 11.0,
+  "stock": 56,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "JC101086",
+  "nombre": "Rodamiento de bolas 6302 RS",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 13.0,
+  "stock": 27,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "03100335",
+  "nombre": "Rodamiento de agujas",
+  "marca": "Bajaj",
+  "categoria": "Rodamientos y retenes",
+  "precio": 18.0,
+  "stock": 16,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF101440",
+  "nombre": "Engranaje de segunda",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 65.0,
+  "stock": 26,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF101441",
+  "nombre": "Engranaje de tercera",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 65.0,
+  "stock": 29,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AZ551213",
+  "nombre": "Engranaje de cuarta",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 65.0,
+  "stock": 16,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF101209",
+  "nombre": "Engranaje de retroceso",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 70.0,
+  "stock": 27,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102435",
+  "nombre": "Engranaje satélite",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 45.0,
+  "stock": 21,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102438",
+  "nombre": "Engranaje cónico",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 90.0,
+  "stock": 27,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA102434",
+  "nombre": "Engranaje de diferencial",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 80.0,
+  "stock": 4,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AN101341",
+  "nombre": "Piñón primario",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 55.0,
+  "stock": 26,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA191094",
+  "nombre": "Cable de cambios (blanco)",
+  "marca": "Bajaj",
+  "categoria": "Transmisión",
+  "precio": 24.0,
+  "stock": 18,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF201036",
+  "nombre": "Regulador de voltaje completo",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 60.0,
+  "stock": 28,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF201262",
+  "nombre": "Relay de arranque completo",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 40.0,
+  "stock": 23,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AL201012",
+  "nombre": "Relay de luz delantera",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 22.0,
+  "stock": 31,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "CX201014",
+  "nombre": "Caja de fusibles",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 28.0,
+  "stock": 53,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA111203",
+  "nombre": "Estator completo",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 160.0,
+  "stock": 9,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AN111012",
+  "nombre": "Sensor pick-up",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 35.0,
+  "stock": 7,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201551",
+  "nombre": "Cable positivo de batería",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 20.0,
+  "stock": 23,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201391",
+  "nombre": "Cable negativo de batería",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 18.0,
+  "stock": 41,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201263",
+  "nombre": "Motor de limpiaparabrisas",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 85.0,
+  "stock": 9,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201525",
+  "nombre": "Faro delantero izquierdo",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 75.0,
+  "stock": 15,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201526",
+  "nombre": "Faro delantero derecho",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 75.0,
+  "stock": 27,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "CL201023",
+  "nombre": "Foco 12V 35/35W HS1",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 15.0,
+  "stock": 58,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AH401043",
+  "nombre": "Intermitente delantero izquierdo",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 28.0,
+  "stock": 17,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AH401044",
+  "nombre": "Intermitente delantero derecho",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 28.0,
+  "stock": 58,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "BB201104",
+  "nombre": "Luz posterior izquierda",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 35.0,
+  "stock": 28,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "BB201105",
+  "nombre": "Luz posterior derecha",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 35.0,
+  "stock": 26,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "20201029",
+  "nombre": "Foco 12V 21/5W",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 4.0,
+  "stock": 67,
+  "stock_minimo": 20,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF201335",
+  "nombre": "Switch de control derecho",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 38.0,
+  "stock": 15,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AB201077",
+  "nombre": "Switch de luces de emergencia",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 18.0,
+  "stock": 38,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AF201094",
+  "nombre": "Switch de luz de freno",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 14.0,
+  "stock": 16,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA201332",
+  "nombre": "Switch de retroceso",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 22.0,
+  "stock": 1,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AP111023",
+  "nombre": "Switch de neutro",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 14.0,
+  "stock": 4,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA191134",
+  "nombre": "Cable de velocímetro",
+  "marca": "Bajaj",
+  "categoria": "Eléctrico",
+  "precio": 16.0,
+  "stock": 43,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA221043",
+  "nombre": "Espejo derecho",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 22.0,
+  "stock": 47,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AZ151011",
+  "nombre": "Manubrio",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 85.0,
+  "stock": 19,
+  "stock_minimo": 4,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "06191089",
+  "nombre": "Puño de manubrio",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 12.0,
+  "stock": 41,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "AA231689",
+  "nombre": "Asiento del conductor completo",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 180.0,
+  "stock": 4,
+  "stock_minimo": 2,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "24201415",
+  "nombre": "Luz de cabina completa",
+  "marca": "Bajaj",
+  "categoria": "Carrocería y mandos",
+  "precio": 26.0,
+  "stock": 57,
+  "stock_minimo": 8,
+  "modelos": [
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-001",
+  "nombre": "Aceite Motul 3000 4T 20W-50 1 L",
+  "marca": "Motul",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 34.0,
+  "stock": 0,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-002",
+  "nombre": "Aceite Motul 3000 4T 20W-50 4 L",
+  "marca": "Motul",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 118.0,
+  "stock": 10,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-003",
+  "nombre": "Aceite Castrol Actevo 4T 20W-50 1 L",
+  "marca": "Castrol",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 31.0,
+  "stock": 8,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-004",
+  "nombre": "Aceite Castrol Power1 4T 20W-40 1 L",
+  "marca": "Castrol",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 35.0,
+  "stock": 11,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-005",
+  "nombre": "Aceite Shell Advance 4T 20W-50 1 L",
+  "marca": "Shell",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 29.0,
+  "stock": 54,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-006",
+  "nombre": "Aceite de engranajes SAE 90 1 L",
+  "marca": "Castrol",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 22.0,
+  "stock": 56,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-007",
+  "nombre": "Líquido de frenos DOT 4 250 ml",
+  "marca": "Motul",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 18.0,
+  "stock": 37,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "LUB-008",
+  "nombre": "Grasa multipropósito 500 g",
+  "marca": "Castrol",
+  "categoria": "Lubricantes y fluidos",
+  "precio": 24.0,
+  "stock": 30,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-001",
+  "nombre": "Foco 12V 21/5W de freno y posición",
+  "marca": "Philips",
+  "categoria": "Eléctrico",
+  "precio": 4.5,
+  "stock": 74,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-002",
+  "nombre": "Foco 12V 10W",
+  "marca": "Philips",
+  "categoria": "Eléctrico",
+  "precio": 3.0,
+  "stock": 113,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-003",
+  "nombre": "Foco 12V 5W",
+  "marca": "Osram",
+  "categoria": "Eléctrico",
+  "precio": 2.5,
+  "stock": 111,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-004",
+  "nombre": "Foco 12V 35/35W HS1",
+  "marca": "Osram",
+  "categoria": "Eléctrico",
+  "precio": 17.0,
+  "stock": 20,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-005",
+  "nombre": "Batería 12V 32 Ah",
+  "marca": "Exide",
+  "categoria": "Eléctrico",
+  "precio": 330.0,
+  "stock": 1,
+  "stock_minimo": 1,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-006",
+  "nombre": "Juego de fusibles surtidos",
+  "marca": "Genérico",
+  "categoria": "Eléctrico",
+  "precio": 12.0,
+  "stock": 7,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ELE-007",
+  "nombre": "Cinta aislante 18 mm",
+  "marca": "3M",
+  "categoria": "Eléctrico",
+  "precio": 4.0,
+  "stock": 76,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "RUE-001",
+  "nombre": "Neumático 4.00-8",
+  "marca": "Genérico",
+  "categoria": "Ruedas y llantas",
+  "precio": 160.0,
+  "stock": 3,
+  "stock_minimo": 2,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "RUE-002",
+  "nombre": "Cámara de aire 4.00-8",
+  "marca": "Genérico",
+  "categoria": "Ruedas y llantas",
+  "precio": 28.0,
+  "stock": 27,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "RUE-003",
+  "nombre": "Válvula de aire para cámara",
+  "marca": "Genérico",
+  "categoria": "Ruedas y llantas",
+  "precio": 3.0,
+  "stock": 110,
+  "stock_minimo": 20,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ACC-001",
+  "nombre": "Forro de asiento universal",
+  "marca": "Genérico",
+  "categoria": "Accesorios",
+  "precio": 40.0,
+  "stock": 8,
+  "stock_minimo": 4,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ACC-002",
+  "nombre": "Limpiador de carburador 400 ml",
+  "marca": "Genérico",
+  "categoria": "Accesorios",
+  "precio": 16.0,
+  "stock": 53,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ },
+ {
+  "codigo": "ACC-003",
+  "nombre": "Kit de abrazaderas surtidas (20 piezas)",
+  "marca": "Genérico",
+  "categoria": "Accesorios",
+  "precio": 10.0,
+  "stock": 54,
+  "stock_minimo": 8,
+  "modelos": [
+   "TVS King Deluxe",
+   "TVS Duramax",
+   "Bajaj Torito"
+  ]
+ }
+]

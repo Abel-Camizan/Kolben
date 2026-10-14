@@ -13,6 +13,14 @@ cd Angular20/backend && npm install && node db/init.js && node server.js
 cd Angular20/frontend && npm install && npm start
 ```
 
+## Datos iniciales
+
+```bash
+# Carga ~200 repuestos de ejemplo (códigos reales de los catálogos de TVS y Bajaj); se puede repetir sin duplicar
+cd Angular20/backend && node db/seed-repuestos.js
+```
+Los precios, el stock y el stock mínimo son de **ejemplo**: se ajustan desde la pantalla Repuestos.
+
 ## Pruebas
 
 ```bash
