@@ -1,0 +1,110 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Clientes</h2>
+    @if (!mostrarFormulario) {
+      <button type="button" (click)="nuevo()">Nuevo cliente</button>
+    }
+  </div>
+
+  @if (aviso()) {
+    <p class="aviso">{{ aviso() }}</p>
+  }
+  @if (error() && !mostrarFormulario) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (mostrarFormulario) {
+    <form (ngSubmit)="guardar()" class="formulario">
+      <h3>{{ editandoId === null ? 'Nuevo cliente' : 'Editar cliente' }}</h3>
+
+      <label>Nombre <input name="nombre" [(ngModel)]="formulario.nombre" required /></label>
+      <label>
+        DNI o RUC (opcional)
+        <input name="documento" [(ngModel)]="formulario.documento" inputmode="numeric" maxlength="11" />
+      </label>
+      <label>Teléfono (opcional) <input name="telefono" [(ngModel)]="formulario.telefono" inputmode="tel" /></label>
+      <label>Dirección (opcional) <input name="direccion" [(ngModel)]="formulario.direccion" /></label>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      <div class="acciones">
+        <button type="submit" [disabled]="guardando()">{{ guardando() ? 'Guardando…' : 'Guardar' }}</button>
+        <button type="button" class="secundario" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  } @else {
+    <div class="filtros">
+      <input
+        name="texto"
+        placeholder="Buscar por nombre, documento o teléfono"
+        [(ngModel)]="texto"
+        (ngModelChange)="buscarConRetraso()"
+      />
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Documento</th><th>Teléfono</th><th>Dirección</th>
+          @if (auth.esAdmin()) { <th>Estado</th> }
+          <th></th></tr>
+      </thead>
+      <tbody>
+        @for (c of lista(); track c.id) {
+          <tr [class.inactivo]="!c.activo">
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.documento }}</td>
+            <td>{{ c.telefono }}</td>
+            <td>{{ c.direccion }}</td>
+            @if (auth.esAdmin()) {
+              <td>{{ c.activo ? 'Activo' : 'De baja' }}</td>
+            }
+            <td class="acciones">
+              <button type="button" class="secundario" (click)="verHistorial(c)">
+                {{ detalle()?.id === c.id ? 'Ocultar compras' : 'Ver compras' }}
+              </button>
+              <button type="button" class="secundario" (click)="editar(c)">Editar</button>
+              @if (auth.esAdmin()) {
+                <button type="button" class="secundario" (click)="cambiarEstado(c)">
+                  {{ c.activo ? 'Dar de baja' : 'Reactivar' }}
+                </button>
+              }
+            </td>
+          </tr>
+          @if (detalle(); as d) {
+            @if (d.id === c.id) {
+              <tr>
+                <td [attr.colspan]="auth.esAdmin() ? 6 : 5">
+                  <p>
+                    <strong>{{ d.resumen.compras }}</strong> compras · total
+                    <strong>S/ {{ d.resumen.total | number: '1.2-2' }}</strong>
+                    @if (d.resumen.ultima) { · última: {{ d.resumen.ultima | date: 'dd/MM/yyyy' }} }
+                  </p>
+                  @if (d.historial.length > 0) {
+                    <table>
+                      <thead><tr><th>Comprobante</th><th>Fecha</th><th>Vendedor</th><th>Total</th></tr></thead>
+                      <tbody>
+                        @for (v of d.historial; track v.id) {
+                          <tr>
+                            <td>{{ v.numero }}</td>
+                            <td>{{ v.fecha | date: 'dd/MM/yyyy HH:mm' }}</td>
+                            <td>{{ v.vendedor }}</td>
+                            <td>S/ {{ v.total }}</td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+                  } @else {
+                    <p>Este cliente todavía no tiene compras registradas.</p>
+                  }
+                </td>
+              </tr>
+            }
+          }
+        } @empty {
+          <tr><td [attr.colspan]="auth.esAdmin() ? 6 : 5">No hay clientes que coincidan.</td></tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

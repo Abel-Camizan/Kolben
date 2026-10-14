@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS clientes (
     documento  VARCHAR(15)  UNIQUE,      -- DNI o RUC
     telefono   VARCHAR(20),
     direccion  VARCHAR(200),
+    activo     BOOLEAN      NOT NULL DEFAULT TRUE,
     creado_en  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -131,6 +132,8 @@ ALTER TABLE usuarios DROP CONSTRAINT IF EXISTS usuarios_rol_check;
 ALTER TABLE usuarios ADD CONSTRAINT usuarios_rol_check
     CHECK (rol IN ('administrador', 'vendedor', 'cliente'));
 ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS cliente_id INT REFERENCES clientes(id);
+-- Baja lógica de clientes (UAT 7)
+ALTER TABLE clientes ADD COLUMN IF NOT EXISTS activo BOOLEAN NOT NULL DEFAULT TRUE;
 
 -- Índices para las búsquedas más frecuentes
 CREATE INDEX IF NOT EXISTS idx_repuestos_nombre  ON repuestos (LOWER(nombre));

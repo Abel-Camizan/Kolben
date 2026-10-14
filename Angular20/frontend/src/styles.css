@@ -58,3 +58,9 @@ a.boton.secundario { background: #e5e7eb; color: #222; }
 /* Reportes */
 .pestanas { display: flex; gap: 0.5rem; margin: 0.75rem 0; flex-wrap: wrap; }
 .filtros label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.9rem; }
+
+/* Cliente en la venta */
+.cliente-venta { margin-bottom: 0.75rem; }
+.cliente-venta input { width: 100%; box-sizing: border-box; }
+.sugerencias { list-style: none; margin: 0.25rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.25rem; }
+.sugerencias button { width: 100%; text-align: left; }
