@@ -121,3 +121,9 @@ export interface Ingreso {
   total: string;
   items?: ItemIngreso[]; // solo viene en el detalle de un ingreso
 }
+
+// Usuario tal como lo ve el administrador en la gestión de cuentas
+export interface UsuarioAdmin extends Usuario {
+  activo: boolean;
+  creado_en: string;
+}

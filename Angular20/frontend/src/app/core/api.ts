@@ -10,6 +10,7 @@ import {
   Pedido,
   Proveedor,
   Repuesto,
+  UsuarioAdmin,
 } from './models';
 
 @Injectable({ providedIn: 'root' })
@@ -91,6 +92,22 @@ export class Api {
       observacion,
       items,
     });
+  }
+
+  // --- Gestión de usuarios (administrador) ---
+  usuarios() {
+    return this.http.get<UsuarioAdmin[]>(`${API_URL}/usuarios`);
+  }
+
+  crearUsuario(datos: { nombre: string; usuario: string; password: string; rol: string }) {
+    return this.http.post<UsuarioAdmin>(`${API_URL}/usuarios`, datos);
+  }
+
+  editarUsuario(
+    id: number,
+    datos: { nombre?: string; rol?: string; activo?: boolean; password?: string },
+  ) {
+    return this.http.patch<UsuarioAdmin>(`${API_URL}/usuarios/${id}`, datos);
   }
 
   marcas() {

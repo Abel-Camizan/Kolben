@@ -10,6 +10,7 @@ import { Pedidos } from './pedidos/pedidos';
 import { Proveedores } from './proveedores/proveedores';
 import { Registro } from './registro/registro';
 import { Repuestos } from './repuestos/repuestos';
+import { Usuarios } from './usuarios/usuarios';
 import { Ventas } from './ventas/ventas';
 
 export const routes: Routes = [
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: 'repuestos', component: Repuestos, canActivate: [adminGuard] },
   { path: 'proveedores', component: Proveedores, canActivate: [adminGuard] },
   { path: 'ingresos', component: Ingresos, canActivate: [adminGuard] },
+  { path: 'usuarios', component: Usuarios, canActivate: [adminGuard] },
   // Inicio: el personal pasa directo a ventas; los demás ven el catálogo
   { path: '', pathMatch: 'full', component: Catalogo, canActivate: [inicioGuard] },
   { path: '**', redirectTo: '' },
