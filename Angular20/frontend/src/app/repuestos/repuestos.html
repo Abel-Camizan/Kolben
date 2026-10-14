@@ -1,0 +1,134 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Repuestos</h2>
+    @if (!mostrarFormulario) {
+      <button type="button" (click)="nuevo()">Nuevo repuesto</button>
+    }
+  </div>
+
+  @if (aviso()) {
+    <p class="aviso">{{ aviso() }}</p>
+  }
+  @if (error() && !mostrarFormulario) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (mostrarFormulario) {
+    <form (ngSubmit)="guardar()" class="formulario">
+      <h3>{{ editandoId === null ? 'Nuevo repuesto' : 'Editar repuesto' }}</h3>
+
+      <label>Código <input name="codigo" [(ngModel)]="formulario.codigo" required /></label>
+      <label>Nombre <input name="nombre" [(ngModel)]="formulario.nombre" required /></label>
+
+      <label>
+        Marca
+        <select name="marca" [(ngModel)]="formulario.marca_id">
+          <option [ngValue]="null">Sin marca</option>
+          @for (m of marcas(); track m.id) {
+            <option [ngValue]="m.id">{{ m.nombre }}</option>
+          }
+        </select>
+      </label>
+      <div class="agregar-rapido">
+        <input name="nuevaMarca" placeholder="Nueva marca" [(ngModel)]="nuevaMarca" />
+        <button type="button" class="secundario" (click)="agregarMarca()">Agregar marca</button>
+      </div>
+
+      <label>
+        Categoría
+        <select name="categoria" [(ngModel)]="formulario.categoria_id">
+          <option [ngValue]="null">Sin categoría</option>
+          @for (c of categorias(); track c.id) {
+            <option [ngValue]="c.id">{{ c.nombre }}</option>
+          }
+        </select>
+      </label>
+      <div class="agregar-rapido">
+        <input name="nuevaCategoria" placeholder="Nueva categoría" [(ngModel)]="nuevaCategoria" />
+        <button type="button" class="secundario" (click)="agregarCategoria()">Agregar categoría</button>
+      </div>
+
+      <label>
+        Precio (S/)
+        <input name="precio" type="number" min="0" step="0.01" [(ngModel)]="formulario.precio" required />
+      </label>
+      <label>
+        Stock
+        <input name="stock" type="number" min="0" step="1" [(ngModel)]="formulario.stock" />
+      </label>
+      <label>
+        Stock mínimo
+        <input name="stock_minimo" type="number" min="0" step="1" [(ngModel)]="formulario.stock_minimo" />
+      </label>
+
+      <fieldset>
+        <legend>Modelos compatibles</legend>
+        @for (m of modelos(); track m.id) {
+          <label class="opcion">
+            <input
+              type="checkbox"
+              [name]="'modelo' + m.id"
+              [ngModel]="tieneModelo(m.id)"
+              (ngModelChange)="alternarModelo(m.id, $event)"
+            />
+            {{ m.nombre }}
+          </label>
+        }
+      </fieldset>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      <div class="acciones">
+        <button type="submit" [disabled]="guardando()">{{ guardando() ? 'Guardando…' : 'Guardar' }}</button>
+        <button type="button" class="secundario" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  } @else {
+    <div class="filtros">
+      <input
+        name="texto"
+        placeholder="Buscar por nombre o código"
+        [(ngModel)]="texto"
+        (ngModelChange)="buscarConRetraso()"
+      />
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th><th>Repuesto</th><th>Marca</th><th>Modelos</th>
+          <th>Precio</th><th>Stock</th><th>Estado</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of lista(); track r.id) {
+          <tr [class.inactivo]="!r.activo">
+            <td>{{ r.codigo }}</td>
+            <td>
+              {{ r.nombre }}
+              <small>{{ r.categoria }}</small>
+            </td>
+            <td>{{ r.marca }}</td>
+            <td>
+              @for (m of r.modelos; track m.id) {
+                <small>{{ m.nombre }}</small>
+              }
+            </td>
+            <td>S/ {{ r.precio }}</td>
+            <td [class.agotado]="r.stock <= r.stock_minimo">{{ r.stock }}</td>
+            <td>{{ r.activo ? 'Activo' : 'De baja' }}</td>
+            <td class="acciones">
+              <button type="button" class="secundario" (click)="editar(r)">Editar</button>
+              <button type="button" class="secundario" (click)="cambiarEstado(r)">
+                {{ r.activo ? 'Dar de baja' : 'Reactivar' }}
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="8">No hay repuestos. Crea el primero con "Nuevo repuesto".</td></tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>
