@@ -1,0 +1,89 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Usuarios</h2>
+    @if (!mostrarFormulario) {
+      <button type="button" (click)="nuevo()">Nuevo usuario</button>
+    }
+  </div>
+
+  @if (aviso()) {
+    <p class="aviso">{{ aviso() }}</p>
+  }
+  @if (error() && !mostrarFormulario) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (mostrarFormulario) {
+    <form (ngSubmit)="guardar()" class="formulario">
+      <h3>{{ editando ? 'Editar usuario' : 'Nuevo usuario' }}</h3>
+
+      <label>Nombre <input name="nombre" [(ngModel)]="formulario.nombre" required /></label>
+      <label>
+        Usuario (para iniciar sesión)
+        <input
+          name="usuario"
+          [(ngModel)]="formulario.usuario"
+          [disabled]="editando !== null"
+          autocomplete="off"
+          required
+          minlength="3"
+        />
+      </label>
+      @if (!editando || editando.rol !== 'cliente') {
+        <label>
+          Rol
+          <select name="rol" [(ngModel)]="formulario.rol" [disabled]="editando !== null && esYo(editando)">
+            <option value="vendedor">Vendedor</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </label>
+      }
+      <label>
+        {{ editando ? 'Nueva contraseña (déjala vacía para no cambiarla)' : 'Contraseña (mínimo 6 caracteres)' }}
+        <input name="password" type="password" [(ngModel)]="formulario.password" autocomplete="new-password" />
+      </label>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      <div class="acciones">
+        <button type="submit" [disabled]="guardando()">{{ guardando() ? 'Guardando…' : 'Guardar' }}</button>
+        <button type="button" class="secundario" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  } @else {
+    <div class="filtros">
+      <select name="tipo" [(ngModel)]="verClientes">
+        <option [ngValue]="false">Personal (administradores y vendedores)</option>
+        <option [ngValue]="true">Clientes registrados en línea</option>
+      </select>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Nombre</th><th>Usuario</th><th>Rol</th><th>Creado</th><th>Estado</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (u of visibles(); track u.id) {
+          <tr [class.inactivo]="!u.activo">
+            <td>{{ u.nombre }} @if (esYo(u)) { <small>(tú)</small> }</td>
+            <td>{{ u.usuario }}</td>
+            <td>{{ u.rol }}</td>
+            <td>{{ u.creado_en | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ u.activo ? 'Activo' : 'Desactivado' }}</td>
+            <td class="acciones">
+              <button type="button" class="secundario" (click)="editar(u)">Editar</button>
+              @if (!esYo(u)) {
+                <button type="button" class="secundario" (click)="cambiarEstado(u)">
+                  {{ u.activo ? 'Desactivar' : 'Reactivar' }}
+                </button>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="6">No hay usuarios en esta lista.</td></tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>
