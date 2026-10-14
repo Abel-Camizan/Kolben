@@ -1,0 +1,58 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Pedidos en línea</h2>
+    <select name="estado" [(ngModel)]="estado" (ngModelChange)="cargar()">
+      <option value="pendiente">Pendientes</option>
+      <option value="confirmado">Confirmados</option>
+      <option value="entregado">Entregados</option>
+      <option value="cancelado">Cancelados</option>
+      <option value="">Todos</option>
+    </select>
+  </div>
+
+  @if (aviso()) {
+    <p class="aviso">{{ aviso() }}</p>
+  }
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <table>
+    <thead>
+      <tr><th>N.º</th><th>Fecha</th><th>Cliente</th><th>Contacto</th><th>Estado</th><th>Total</th><th></th></tr>
+    </thead>
+    <tbody>
+      @for (p of pedidos(); track p.id) {
+        <tr>
+          <td>{{ p.numero }}</td>
+          <td>{{ p.creado_en | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ p.cliente }}<small>{{ p.cliente_documento }}</small></td>
+          <td>{{ p.cliente_telefono }}</td>
+          <td><span [class]="'estado ' + p.estado">{{ p.estado }}</span></td>
+          <td>S/ {{ p.total }}</td>
+          <td class="acciones">
+            <button type="button" class="secundario" (click)="ver(p)">
+              {{ abierto()?.id === p.id ? 'Ocultar' : 'Ver detalle' }}
+            </button>
+            @if (p.estado === 'pendiente') {
+              <button type="button" (click)="accion(p, 'confirmar')">Confirmar</button>
+              <button type="button" class="secundario" (click)="accion(p, 'cancelar')">Cancelar</button>
+            }
+            @if (p.estado === 'confirmado') {
+              <button type="button" (click)="accion(p, 'entregar')">Marcar entregado</button>
+            }
+          </td>
+        </tr>
+        @if (abierto(); as a) {
+          @if (a.id === p.id) {
+            <tr>
+              <td colspan="7"><app-pedido-detalle [pedido]="a" /></td>
+            </tr>
+          }
+        }
+      } @empty {
+        <tr><td colspan="7">No hay pedidos en este estado.</td></tr>
+      }
+    </tbody>
+  </table>
+</section>

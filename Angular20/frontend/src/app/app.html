@@ -1,15 +1,31 @@
 <header class="barra no-imprimir">
   <strong>Kolben</strong>
-  @if (auth.usuario(); as u) {
-    <nav>
+
+  <nav>
+    @if (auth.esPersonal()) {
       <a routerLink="/ventas" routerLinkActive="activo">Ventas</a>
-      @if (u.rol === 'administrador') {
+      <a routerLink="/pedidos" routerLinkActive="activo">Pedidos</a>
+      @if (auth.esAdmin()) {
         <a routerLink="/repuestos" routerLinkActive="activo">Repuestos</a>
       }
-    </nav>
+    } @else {
+      <a routerLink="/catalogo" routerLinkActive="activo">Catálogo</a>
+      <a routerLink="/carrito" routerLinkActive="activo">Carrito ({{ carrito.cantidadTotal() }})</a>
+      @if (auth.esCliente()) {
+        <a routerLink="/mis-pedidos" routerLinkActive="activo">Mis pedidos</a>
+      }
+    }
+  </nav>
+
+  @if (auth.usuario(); as u) {
     <span class="usuario">
       {{ u.nombre }} ({{ u.rol }})
       <button type="button" class="secundario" (click)="auth.logout()">Salir</button>
+    </span>
+  } @else {
+    <span class="usuario">
+      <a routerLink="/login" class="boton secundario">Iniciar sesión</a>
+      <a routerLink="/registro" class="boton">Crear cuenta</a>
     </span>
   }
 </header>

@@ -1,0 +1,64 @@
+<section class="tarjeta">
+  <h2>Tu carrito</h2>
+
+  @if (carrito.lineas().length === 0) {
+    <p>Tu carrito está vacío. <a routerLink="/catalogo">Ver el catálogo</a></p>
+  } @else {
+    <table>
+      <thead>
+        <tr><th>Repuesto</th><th>Precio</th><th>Cant.</th><th>Subtotal</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (l of carrito.lineas(); track l.repuesto.id) {
+          <tr>
+            <td>{{ l.repuesto.nombre }}<small>{{ l.repuesto.codigo }}</small></td>
+            <td>S/ {{ l.repuesto.precio }}</td>
+            <td>
+              <input
+                type="number"
+                class="cantidad"
+                min="1"
+                [max]="l.repuesto.stock"
+                [ngModel]="l.cantidad"
+                (ngModelChange)="carrito.cambiarCantidad(l.repuesto.id, $event)"
+                [name]="'cant' + l.repuesto.id"
+              />
+            </td>
+            <td>S/ {{ carrito.subtotal(l) | number: '1.2-2' }}</td>
+            <td><button type="button" class="secundario" (click)="carrito.quitar(l.repuesto.id)">Quitar</button></td>
+          </tr>
+        }
+      </tbody>
+      <tfoot>
+        <tr><th colspan="3">Total</th><th colspan="2">S/ {{ carrito.total() | number: '1.2-2' }}</th></tr>
+      </tfoot>
+    </table>
+
+    @if (auth.esCliente()) {
+      <label class="campo">
+        Nota para la tienda (opcional)
+        <input name="nota" maxlength="200" [(ngModel)]="nota" placeholder="Ej.: recojo mañana por la tarde" />
+      </label>
+      <p><small>El pago se realiza en la tienda al recoger el pedido. Los precios y el stock se confirman al atenderlo.</small></p>
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      <div class="acciones">
+        <button type="button" (click)="generarPedido()" [disabled]="enviando()">
+          {{ enviando() ? 'Enviando…' : 'Generar pedido' }}
+        </button>
+        <button type="button" class="secundario" (click)="carrito.vaciar()">Vaciar carrito</button>
+      </div>
+    } @else if (auth.esPersonal()) {
+      <p>Los pedidos en línea los generan los clientes. Usa la pantalla de Ventas para el mostrador.</p>
+    } @else {
+      <p>
+        Para generar tu pedido necesitas una cuenta. Tu carrito se conserva.
+      </p>
+      <div class="acciones">
+        <a routerLink="/login" [queryParams]="{ volver: '/carrito' }" class="boton">Iniciar sesión</a>
+        <a routerLink="/registro" [queryParams]="{ volver: '/carrito' }" class="boton secundario">Crear cuenta</a>
+      </div>
+    }
+  }
+</section>

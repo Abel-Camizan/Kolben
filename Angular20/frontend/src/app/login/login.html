@@ -26,4 +26,6 @@
       {{ cargando() ? 'Entrando…' : 'Entrar' }}
     </button>
   </form>
+
+  <p>¿Eres cliente y no tienes cuenta? <a routerLink="/registro" [queryParams]="ruta.snapshot.queryParams">Crear cuenta</a></p>
 </main>

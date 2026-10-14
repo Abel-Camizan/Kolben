@@ -2,9 +2,10 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { Auth } from './auth';
 
-// Solo el administrador entra; cualquier otro rol vuelve a ventas
+// Solo el administrador entra; cualquier otro vuelve al inicio
 export const adminGuard: CanActivateFn = () => {
   const auth = inject(Auth);
-  if (!auth.autenticado()) return inject(Router).createUrlTree(['/login']);
-  return auth.usuario()?.rol === 'administrador' ? true : inject(Router).createUrlTree(['/ventas']);
+  const router = inject(Router);
+  if (!auth.autenticado()) return router.createUrlTree(['/login']);
+  return auth.esAdmin() ? true : router.createUrlTree(['/']);
 };
