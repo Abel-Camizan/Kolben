@@ -29,3 +29,18 @@ small { display: block; color: #6b7280; }
   body { background: #fff; }
   .tarjeta { box-shadow: none; }
 }
+
+/* Navegación y pantalla de repuestos */
+.barra nav { display: flex; gap: 1rem; margin-right: auto; margin-left: 1.5rem; }
+.barra nav a { color: #cbd5e1; text-decoration: none; }
+.barra nav a.activo { color: #fff; font-weight: bold; }
+.encabezado { display: flex; justify-content: space-between; align-items: center; }
+.formulario { display: flex; flex-direction: column; gap: 0.6rem; max-width: 28rem; }
+.formulario label { display: flex; flex-direction: column; gap: 0.2rem; }
+.formulario fieldset { border: 1px solid #c4c8d0; border-radius: 4px; }
+.formulario .opcion { flex-direction: row; align-items: center; gap: 0.4rem; }
+.agregar-rapido { display: flex; gap: 0.5rem; }
+.agregar-rapido input { flex: 1; }
+.aviso { color: #15803d; }
+tr.inactivo td { color: #9ca3af; }
+td.acciones { display: flex; gap: 0.4rem; }

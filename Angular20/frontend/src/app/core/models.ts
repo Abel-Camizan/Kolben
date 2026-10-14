@@ -17,9 +17,24 @@ export interface Repuesto {
   precio: string; // PostgreSQL entrega los decimales como texto: usar Number()
   stock: number;
   stock_minimo: number;
+  activo: boolean;
+  marca_id: number | null;
   marca: string | null;
+  categoria_id: number | null;
   categoria: string | null;
   modelos: Modelo[];
+}
+
+// Lo que se envía al crear o editar un repuesto
+export interface DatosRepuesto {
+  codigo: string;
+  nombre: string;
+  marca_id: number | null;
+  categoria_id: number | null;
+  precio: number;
+  stock: number;
+  stock_minimo: number;
+  modelos: number[];
 }
 
 export interface ItemComprobante {

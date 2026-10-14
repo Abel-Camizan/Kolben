@@ -1,6 +1,12 @@
 <header class="barra no-imprimir">
   <strong>Kolben</strong>
   @if (auth.usuario(); as u) {
+    <nav>
+      <a routerLink="/ventas" routerLinkActive="activo">Ventas</a>
+      @if (u.rol === 'administrador') {
+        <a routerLink="/repuestos" routerLinkActive="activo">Repuestos</a>
+      }
+    </nav>
     <span class="usuario">
       {{ u.nombre }} ({{ u.rol }})
       <button type="button" class="secundario" (click)="auth.logout()">Salir</button>
