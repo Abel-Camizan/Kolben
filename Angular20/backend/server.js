@@ -7,6 +7,8 @@ const usuariosRoutes = require('./routes/usuarios');
 const catalogosRoutes = require('./routes/catalogos');
 const repuestosRoutes = require('./routes/repuestos');
 const ventasRoutes = require('./routes/ventas');
+const catalogoRoutes = require('./routes/catalogo');
+const pedidosRoutes = require('./routes/pedidos');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,15 +27,18 @@ app.get('/api/db', async (req, res) => {
         const { rows } = await pool.query('SELECT NOW() AS hora');
         res.json({ conectado: true, hora: rows[0].hora });
     } catch (err) {
-        res.status(500).json({ conectado: false, error: err.message });
+        // No se devuelve el mensaje del error: esta ruta es pública
+        res.status(500).json({ conectado: false });
     }
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/catalogo', catalogoRoutes); // público
+app.use('/api/pedidos', pedidosRoutes);
 app.use('/api/usuarios', usuariosRoutes);
-app.use('/api', catalogosRoutes);
 app.use('/api/repuestos', repuestosRoutes);
 app.use('/api/ventas', ventasRoutes);
+app.use('/api', catalogosRoutes); // marcas, categorías y modelos (personal)
 
 app.listen(PORT, () => {
     console.log("Servidor backend corriendo en el puerto " + PORT);

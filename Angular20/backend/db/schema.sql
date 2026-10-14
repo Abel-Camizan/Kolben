@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nombre          VARCHAR(100) NOT NULL,
     usuario         VARCHAR(50)  NOT NULL UNIQUE,
     password_hash   VARCHAR(255) NOT NULL,
-    rol             VARCHAR(20)  NOT NULL CHECK (rol IN ('administrador', 'vendedor')),
+    rol             VARCHAR(20)  NOT NULL CHECK (rol IN ('administrador', 'vendedor', 'cliente')),
     activo          BOOLEAN      NOT NULL DEFAULT TRUE,
     creado_en       TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
@@ -102,10 +102,41 @@ CREATE TABLE IF NOT EXISTS detalle_venta (
     precio_unitario  NUMERIC(10,2) NOT NULL CHECK (precio_unitario >= 0)
 );
 
+-- Pedidos en línea (RF05): el cliente arma el pedido y el personal lo confirma.
+-- Al confirmar se genera la venta y se descuenta el stock.
+CREATE TABLE IF NOT EXISTS pedidos (
+    id             SERIAL PRIMARY KEY,
+    numero         VARCHAR(20)   UNIQUE,
+    usuario_id     INT           NOT NULL REFERENCES usuarios(id),   -- el cliente que pide
+    estado         VARCHAR(15)   NOT NULL DEFAULT 'pendiente'
+                   CHECK (estado IN ('pendiente', 'confirmado', 'entregado', 'cancelado')),
+    total          NUMERIC(10,2) NOT NULL CHECK (total >= 0),
+    nota           VARCHAR(200),
+    venta_id       INT           REFERENCES ventas(id),              -- se llena al confirmar
+    creado_en      TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
+    actualizado_en TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS detalle_pedido (
+    id               SERIAL PRIMARY KEY,
+    pedido_id        INT           NOT NULL REFERENCES pedidos(id) ON DELETE CASCADE,
+    repuesto_id      INT           NOT NULL REFERENCES repuestos(id),
+    cantidad         INT           NOT NULL CHECK (cantidad > 0),
+    precio_unitario  NUMERIC(10,2) NOT NULL CHECK (precio_unitario >= 0)
+);
+
+-- Migración para bases creadas antes de los pedidos (se puede repetir sin problema):
+-- permite el rol cliente y vincula cada usuario cliente con su ficha en la tabla clientes.
+ALTER TABLE usuarios DROP CONSTRAINT IF EXISTS usuarios_rol_check;
+ALTER TABLE usuarios ADD CONSTRAINT usuarios_rol_check
+    CHECK (rol IN ('administrador', 'vendedor', 'cliente'));
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS cliente_id INT REFERENCES clientes(id);
+
 -- Índices para las búsquedas más frecuentes
 CREATE INDEX IF NOT EXISTS idx_repuestos_nombre  ON repuestos (LOWER(nombre));
 CREATE INDEX IF NOT EXISTS idx_ventas_fecha      ON ventas (fecha);
 CREATE INDEX IF NOT EXISTS idx_detalle_venta_rep ON detalle_venta (repuesto_id);
+CREATE INDEX IF NOT EXISTS idx_pedidos_usuario   ON pedidos (usuario_id, estado);
 
 -- Datos base: los tres modelos atendidos
 INSERT INTO modelos_moto (nombre) VALUES

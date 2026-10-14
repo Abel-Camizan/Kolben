@@ -1,9 +1,11 @@
 const express = require('express');
 const pool = require('../db');
-const { autenticar } = require('../middleware/auth');
+const { autenticar, soloRoles } = require('../middleware/auth');
+const { StockError, agruparItems, crearVenta } = require('../services/ventas');
 
 const router = express.Router();
-router.use(autenticar);
+// Las ventas de mostrador son solo del personal (los clientes usan pedidos)
+router.use(autenticar, soloRoles('administrador', 'vendedor'));
 
 // Comprobante interno: cabecera de la venta + líneas de detalle
 const SELECT_VENTA = `
@@ -22,93 +24,38 @@ const SELECT_DETALLE = `
     WHERE d.venta_id = $1
     ORDER BY d.id`;
 
-async function cargarComprobante(cliente, ventaId) {
-    const { rows } = await cliente.query(`${SELECT_VENTA} WHERE v.id = $1`, [ventaId]);
+async function cargarComprobante(db, ventaId) {
+    const { rows } = await db.query(`${SELECT_VENTA} WHERE v.id = $1`, [ventaId]);
     if (!rows[0]) return null;
-    const detalle = await cliente.query(SELECT_DETALLE, [ventaId]);
+    const detalle = await db.query(SELECT_DETALLE, [ventaId]);
     return { ...rows[0], items: detalle.rows };
 }
 
 // POST /api/ventas  { cliente_id?, items: [{ repuesto_id, cantidad }] }
 // Valida stock, descuenta y emite el comprobante en una sola transacción (RF03, RF04, RF05)
 router.post('/', async (req, res) => {
-    const { cliente_id, items } = req.body;
-    if (!Array.isArray(items) || items.length === 0) {
-        return res.status(400).json({ error: 'La venta debe tener al menos un repuesto' });
-    }
-
-    // Une líneas repetidas del mismo repuesto y valida las cantidades
-    const pedido = new Map();
-    for (const it of items) {
-        const id = Number(it.repuesto_id);
-        const cantidad = Number(it.cantidad);
-        if (!Number.isInteger(id) || !Number.isInteger(cantidad) || cantidad <= 0) {
-            return res.status(400).json({ error: 'Cada línea necesita repuesto_id y una cantidad entera mayor a 0' });
-        }
-        pedido.set(id, (pedido.get(id) || 0) + cantidad);
+    const cantidades = agruparItems(req.body.items);
+    if (!cantidades) {
+        return res.status(400).json({
+            error: 'La venta necesita al menos un repuesto, con repuesto_id y una cantidad entera mayor a 0',
+        });
     }
 
     const cliente = await pool.connect();
     try {
         await cliente.query('BEGIN');
-
-        // Bloquea los repuestos en orden de id: dos ventas simultáneas no pueden
-        // dejar el stock en negativo ni bloquearse entre sí
-        const ids = [...pedido.keys()].sort((a, b) => a - b);
-        const { rows: repuestos } = await cliente.query(
-            `SELECT id, codigo, nombre, precio, stock, activo
-             FROM repuestos WHERE id = ANY($1) ORDER BY id FOR UPDATE`,
-            [ids]
-        );
-        const porId = new Map(repuestos.map((r) => [r.id, r]));
-
-        const problemas = [];
-        for (const [id, cantidad] of pedido) {
-            const r = porId.get(id);
-            if (!r || !r.activo) {
-                problemas.push({ repuesto_id: id, motivo: 'Repuesto no disponible' });
-            } else if (r.stock < cantidad) {
-                problemas.push({
-                    repuesto_id: id, codigo: r.codigo, nombre: r.nombre,
-                    motivo: 'Stock insuficiente', solicitado: cantidad, disponible: r.stock,
-                });
-            }
-        }
-        if (problemas.length) {
-            await cliente.query('ROLLBACK');
-            return res.status(409).json({ error: 'No se puede completar la venta', problemas });
-        }
-
-        // El precio sale siempre de la base de datos, nunca del cliente
-        let totalCentimos = 0;
-        for (const [id, cantidad] of pedido) {
-            totalCentimos += Math.round(Number(porId.get(id).precio) * 100) * cantidad;
-        }
-
-        const { rows: venta } = await cliente.query(
-            `INSERT INTO ventas (cliente_id, usuario_id, total)
-             VALUES ($1, $2, $3) RETURNING id`,
-            [cliente_id ?? null, req.usuario.id, totalCentimos / 100]
-        );
-        const ventaId = venta[0].id;
-        await cliente.query(
-            `UPDATE ventas SET numero = 'V-' || LPAD(id::text, 6, '0') WHERE id = $1`,
-            [ventaId]
-        );
-
-        for (const [id, cantidad] of pedido) {
-            await cliente.query(
-                `INSERT INTO detalle_venta (venta_id, repuesto_id, cantidad, precio_unitario)
-                 VALUES ($1, $2, $3, $4)`,
-                [ventaId, id, cantidad, porId.get(id).precio]
-            );
-            await cliente.query('UPDATE repuestos SET stock = stock - $1 WHERE id = $2', [cantidad, id]);
-        }
-
+        const ventaId = await crearVenta(cliente, {
+            usuarioId: req.usuario.id,
+            clienteId: req.body.cliente_id ?? null,
+            cantidades,
+        });
         await cliente.query('COMMIT');
         res.status(201).json(await cargarComprobante(pool, ventaId));
     } catch (err) {
         await cliente.query('ROLLBACK');
+        if (err instanceof StockError) {
+            return res.status(409).json({ error: err.message, problemas: err.problemas });
+        }
         if (err.code === '23503') return res.status(400).json({ error: 'Cliente inexistente' });
         res.status(500).json({ error: 'Error del servidor' });
     } finally {
