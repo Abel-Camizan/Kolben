@@ -3,11 +3,15 @@ const pool = require('../db');
 const { autenticar, soloRoles } = require('../middleware/auth');
 
 const router = express.Router();
-router.use(autenticar);
+
+// Estas listas son del personal. Se aplica el control en cada ruta (no con router.use)
+// porque este router cuelga de /api y no debe interceptar rutas ajenas.
+const personal = [autenticar, soloRoles('administrador', 'vendedor')];
+const soloAdmin = [autenticar, soloRoles('administrador')];
 
 // Listas simples para llenar los combos del formulario de repuestos
-function listaYAlta(ruta, tabla, { editable }) {
-    router.get(ruta, async (req, res) => {
+function listaYAlta(ruta, tabla) {
+    router.get(ruta, personal, async (req, res) => {
         try {
             const { rows } = await pool.query(`SELECT id, nombre FROM ${tabla} ORDER BY nombre`);
             res.json(rows);
@@ -16,9 +20,7 @@ function listaYAlta(ruta, tabla, { editable }) {
         }
     });
 
-    if (!editable) return;
-
-    router.post(ruta, soloRoles('administrador'), async (req, res) => {
+    router.post(ruta, soloAdmin, async (req, res) => {
         const nombre = (req.body.nombre || '').trim();
         if (!nombre) return res.status(400).json({ error: 'El nombre es obligatorio' });
         try {
@@ -34,10 +36,10 @@ function listaYAlta(ruta, tabla, { editable }) {
     });
 }
 
-listaYAlta('/marcas', 'marcas', { editable: true });
-listaYAlta('/categorias', 'categorias', { editable: true });
+listaYAlta('/marcas', 'marcas');
+listaYAlta('/categorias', 'categorias');
 // Los modelos de moto (TVS King Deluxe, TVS Duramax, Bajaj Torito) vienen del esquema;
-// se pueden ampliar después (RNF04: escalabilidad)
-listaYAlta('/modelos', 'modelos_moto', { editable: true });
+// se pueden ampliar después (RNF07: escalabilidad)
+listaYAlta('/modelos', 'modelos_moto');
 
 module.exports = router;

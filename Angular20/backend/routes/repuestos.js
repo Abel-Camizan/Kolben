@@ -3,7 +3,8 @@ const pool = require('../db');
 const { autenticar, soloRoles } = require('../middleware/auth');
 
 const router = express.Router();
-router.use(autenticar);
+// Inventario interno: solo el personal (los clientes ven el catálogo público)
+router.use(autenticar, soloRoles('administrador', 'vendedor'));
 
 // Un repuesto con su marca, categoría y la lista de modelos compatibles
 const SELECT_REPUESTO = `
