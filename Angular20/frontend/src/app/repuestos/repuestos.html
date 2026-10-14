@@ -1,10 +1,33 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Repuestos</h2>
-    @if (!mostrarFormulario) {
-      <button type="button" (click)="nuevo()">Nuevo repuesto</button>
-    }
+<header class="cabecera-pagina">
+  <div>
+    <h1>Repuestos</h1>
+    <p>Catálogo por modelo de moto, con precios y stock</p>
   </div>
+  @if (!mostrarFormulario) {
+    <button type="button" (click)="nuevo()"><app-icono nombre="mas" />Nuevo repuesto</button>
+  }
+</header>
+
+@if (!mostrarFormulario) {
+  <div class="kpis">
+    <div class="kpi">
+      <span>Repuestos activos</span>
+      <strong>{{ resumen().activos }}</strong>
+    </div>
+    <div class="kpi" [class.alerta]="resumen().bajoMinimo > 0">
+      <span>Stock mínimo o agotado</span>
+      <strong>{{ resumen().bajoMinimo }}</strong>
+      <small>{{ resumen().bajoMinimo > 0 ? 'Conviene reponer pronto' : 'Todo con stock suficiente' }}</small>
+    </div>
+    <div class="kpi">
+      <span>Valor del inventario</span>
+      <strong>S/ {{ resumen().valor | number: '1.2-2' }}</strong>
+      <small>Stock por precio de venta</small>
+    </div>
+  </div>
+}
+
+<section class="tarjeta">
 
   @if (aviso()) {
     <p class="aviso">{{ aviso() }}</p>
@@ -117,7 +140,15 @@
             </td>
             <td>S/ {{ r.precio }}</td>
             <td [class.agotado]="r.stock <= r.stock_minimo">{{ r.stock }}</td>
-            <td>{{ r.activo ? 'Activo' : 'De baja' }}</td>
+            <td>
+              @if (!r.activo) {
+                <span class="estado cancelado">De baja</span>
+              } @else if (r.stock <= r.stock_minimo) {
+                <span class="estado pendiente">Stock bajo</span>
+              } @else {
+                <span class="estado entregado">En stock</span>
+              }
+            </td>
             <td class="acciones">
               <button type="button" class="secundario" (click)="editar(r)">Editar</button>
               <button type="button" class="secundario" (click)="cambiarEstado(r)">

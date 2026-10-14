@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
 import { Auth } from '../core/auth';
 import { Cliente, ClienteDetalle } from '../core/models';
+import { Icono } from '../shared/icono';
 
 interface Formulario {
   nombre: string;
@@ -16,7 +17,7 @@ const VACIO: Formulario = { nombre: '', documento: '', telefono: '', direccion: 
 
 @Component({
   selector: 'app-clientes',
-  imports: [FormsModule, DatePipe, DecimalPipe],
+  imports: [FormsModule, DatePipe, DecimalPipe, Icono],
   templateUrl: './clientes.html',
 })
 export class Clientes {

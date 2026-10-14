@@ -1,7 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Api } from '../core/api';
 import { Modelo, Repuesto } from '../core/models';
+import { Icono } from '../shared/icono';
 
 interface Formulario {
   codigo: string;
@@ -27,13 +29,23 @@ const VACIO: Formulario = {
 
 @Component({
   selector: 'app-repuestos',
-  imports: [FormsModule],
+  imports: [FormsModule, DecimalPipe, Icono],
   templateUrl: './repuestos.html',
 })
 export class Repuestos {
   private readonly api = inject(Api);
 
   protected readonly lista = signal<Repuesto[]>([]);
+  // Catálogo completo (sin filtros) para las tarjetas de resumen
+  protected readonly todos = signal<Repuesto[]>([]);
+  protected readonly resumen = computed(() => {
+    const activos = this.todos().filter((r) => r.activo);
+    return {
+      activos: activos.length,
+      bajoMinimo: activos.filter((r) => r.stock <= r.stock_minimo).length,
+      valor: activos.reduce((suma, r) => suma + r.stock * Number(r.precio), 0),
+    };
+  });
   protected readonly marcas = signal<Modelo[]>([]);
   protected readonly categorias = signal<Modelo[]>([]);
   protected readonly modelos = signal<Modelo[]>([]);
@@ -54,6 +66,11 @@ export class Repuestos {
     this.api.categorias().subscribe((c) => this.categorias.set(c));
     this.api.modelos().subscribe((m) => this.modelos.set(m));
     this.cargar();
+    this.refrescarResumen();
+  }
+
+  private refrescarResumen() {
+    this.api.listarRepuestos('').subscribe((r) => this.todos.set(r));
   }
 
   protected buscarConRetraso() {
@@ -150,6 +167,7 @@ export class Repuestos {
         this.mostrarFormulario = false;
         this.aviso.set(this.editandoId === null ? 'Repuesto creado' : 'Cambios guardados');
         this.cargar();
+        this.refrescarResumen();
       },
       error: (e) => {
         this.guardando.set(false);
@@ -164,6 +182,7 @@ export class Repuestos {
       next: () => {
         this.aviso.set(r.activo ? 'Repuesto dado de baja' : 'Repuesto reactivado');
         this.cargar();
+        this.refrescarResumen();
       },
       error: (e) => this.error.set(e.error?.error ?? 'No se pudo cambiar el estado'),
     });

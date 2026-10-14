@@ -1,10 +1,14 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Proveedores</h2>
-    @if (!mostrarFormulario) {
-      <button type="button" (click)="nuevo()">Nuevo proveedor</button>
-    }
+<header class="cabecera-pagina">
+  <div>
+    <h1>Proveedores</h1>
+    <p>Quiénes te abastecen de mercadería</p>
   </div>
+  @if (!mostrarFormulario) {
+    <button type="button" (click)="nuevo()"><app-icono nombre="mas" />Nuevo proveedor</button>
+  }
+</header>
+
+<section class="tarjeta">
 
   @if (aviso()) {
     <p class="aviso">{{ aviso() }}</p>
@@ -42,7 +46,7 @@
             <td>{{ p.ruc }}</td>
             <td>{{ p.telefono }}</td>
             <td>{{ p.direccion }}</td>
-            <td>{{ p.activo ? 'Activo' : 'De baja' }}</td>
+            <td><span class="estado" [class.entregado]="p.activo" [class.cancelado]="!p.activo">{{ p.activo ? 'Activo' : 'De baja' }}</span></td>
             <td class="acciones">
               <button type="button" class="secundario" (click)="editar(p)">Editar</button>
               <button type="button" class="secundario" (click)="cambiarEstado(p)">

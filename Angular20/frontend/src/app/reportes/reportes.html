@@ -1,8 +1,12 @@
-<section class="tarjeta">
-  <div class="encabezado">
-    <h2>Reportes</h2>
-    <button type="button" class="secundario no-imprimir" (click)="imprimir()">Imprimir</button>
+<header class="cabecera-pagina">
+  <div>
+    <h1>Reportes</h1>
+    <p>Ventas por periodo, stock por modelo y repuestos más vendidos.</p>
   </div>
+  <button type="button" class="secundario no-imprimir" (click)="imprimir()"><app-icono nombre="imprimir" />Imprimir</button>
+</header>
+
+<section class="tarjeta">
 
   <div class="pestanas no-imprimir">
     <button type="button" [class.secundario]="pestana !== 'ventas'" (click)="elegir('ventas')">Ventas por periodo</button>
@@ -44,6 +48,11 @@
   @switch (pestana) {
     @case ('ventas') {
       @if (ventas(); as r) {
+        <div class="kpis">
+          <div class="kpi"><span>Ventas en el periodo</span><strong>{{ r.resumen.ventas }}</strong></div>
+          <div class="kpi"><span>Total vendido</span><strong>S/ {{ r.resumen.total | number: '1.2-2' }}</strong></div>
+          <div class="kpi"><span>Ticket promedio</span><strong>S/ {{ promedio(r) | number: '1.2-2' }}</strong></div>
+        </div>
         <h3>Ventas del {{ r.desde }} al {{ r.hasta }}</h3>
         <table>
           <thead>

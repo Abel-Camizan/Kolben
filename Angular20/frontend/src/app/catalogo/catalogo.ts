@@ -1,14 +1,14 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { Api } from '../core/api';
 import { Auth } from '../core/auth';
 import { Carrito } from '../core/carrito';
 import { ItemCatalogo, Modelo } from '../core/models';
+import { Icono } from '../shared/icono';
 
 @Component({
   selector: 'app-catalogo',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, Icono],
   templateUrl: './catalogo.html',
 })
 export class Catalogo {
@@ -32,6 +32,11 @@ export class Catalogo {
   protected buscarConRetraso() {
     clearTimeout(this.temporizador);
     this.temporizador = setTimeout(() => this.buscar(), 300);
+  }
+
+  protected elegirModelo(id: number | null) {
+    this.modeloId = id;
+    this.buscar();
   }
 
   protected buscar() {
