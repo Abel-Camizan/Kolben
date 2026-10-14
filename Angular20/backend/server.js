@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth');
 const usuariosRoutes = require('./routes/usuarios');
 const catalogosRoutes = require('./routes/catalogos');
 const repuestosRoutes = require('./routes/repuestos');
+const ventasRoutes = require('./routes/ventas');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -32,6 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api', catalogosRoutes);
 app.use('/api/repuestos', repuestosRoutes);
+app.use('/api/ventas', ventasRoutes);
 
 app.listen(PORT, () => {
     console.log("Servidor backend corriendo en el puerto " + PORT);
