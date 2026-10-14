@@ -2,6 +2,10 @@ require('dotenv').config({ quiet: true });
 const express = require('express');
 const cors = require('cors');
 const pool = require('./db');
+const authRoutes = require('./routes/auth');
+const usuariosRoutes = require('./routes/usuarios');
+const catalogosRoutes = require('./routes/catalogos');
+const repuestosRoutes = require('./routes/repuestos');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -23,6 +27,11 @@ app.get('/api/db', async (req, res) => {
         res.status(500).json({ conectado: false, error: err.message });
     }
 });
+
+app.use('/api/auth', authRoutes);
+app.use('/api/usuarios', usuariosRoutes);
+app.use('/api', catalogosRoutes);
+app.use('/api/repuestos', repuestosRoutes);
 
 app.listen(PORT, () => {
     console.log("Servidor backend corriendo en el puerto " + PORT);
