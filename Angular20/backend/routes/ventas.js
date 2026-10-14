@@ -41,16 +41,23 @@ router.post('/', async (req, res) => {
         });
     }
 
+    // Se valida el cliente ANTES de abrir la venta: un insert fallido gastaría un número de comprobante
+    const clienteId = req.body.cliente_id ?? null;
+    if (clienteId !== null) {
+        const { rowCount } = await pool.query('SELECT 1 FROM clientes WHERE id = $1 AND activo', [Number(clienteId) || 0]);
+        if (!rowCount) return res.status(400).json({ error: 'Cliente inexistente o dado de baja' });
+    }
+
     const cliente = await pool.connect();
     try {
         await cliente.query('BEGIN');
         const ventaId = await crearVenta(cliente, {
             usuarioId: req.usuario.id,
-            clienteId: req.body.cliente_id ?? null,
+            clienteId,
             cantidades,
         });
         await cliente.query('COMMIT');
-        res.status(201).json(await cargarComprobante(pool, ventaId));
+        res.status(201).json(await cargarComprobante(cliente, ventaId)); // misma conexión: pedir otra al grupo puede bloquear
     } catch (err) {
         await cliente.query('ROLLBACK');
         if (err instanceof StockError) {
