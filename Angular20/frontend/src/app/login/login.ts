@@ -1,16 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Auth } from '../core/auth';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
 })
 export class Login {
   private readonly auth = inject(Auth);
   private readonly router = inject(Router);
+  protected readonly ruta = inject(ActivatedRoute);
 
   protected usuario = '';
   protected password = '';
@@ -21,7 +22,16 @@ export class Login {
     this.error.set('');
     this.cargando.set(true);
     this.auth.login(this.usuario, this.password).subscribe({
-      next: () => this.router.navigate(['/ventas']),
+      next: () => {
+        // El personal va a ventas; el cliente vuelve a donde estaba (p. ej. el carrito)
+        const volver = this.ruta.snapshot.queryParamMap.get('volver');
+        const destino = this.auth.esPersonal()
+          ? '/ventas'
+          : volver && volver.startsWith('/')
+            ? volver
+            : '/catalogo';
+        this.router.navigateByUrl(destino);
+      },
       error: (e) => {
         this.cargando.set(false);
         this.error.set(

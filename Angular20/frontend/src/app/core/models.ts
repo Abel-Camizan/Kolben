@@ -2,7 +2,44 @@ export interface Usuario {
   id: number;
   nombre: string;
   usuario: string;
-  rol: 'administrador' | 'vendedor';
+  rol: 'administrador' | 'vendedor' | 'cliente';
+}
+
+// Repuesto tal como lo ve el cliente en el catálogo público
+export interface ItemCatalogo {
+  id: number;
+  codigo: string;
+  nombre: string;
+  precio: string;
+  stock: number;
+  marca: string | null;
+  categoria: string | null;
+  modelos: Modelo[];
+}
+
+export type EstadoPedido = 'pendiente' | 'confirmado' | 'entregado' | 'cancelado';
+
+export interface ItemPedido {
+  repuesto_id: number;
+  codigo: string;
+  nombre: string;
+  cantidad: number;
+  precio_unitario: string;
+  subtotal: string;
+}
+
+export interface Pedido {
+  id: number;
+  numero: string;
+  estado: EstadoPedido;
+  total: string;
+  nota: string | null;
+  venta_id: number | null;
+  creado_en: string;
+  cliente: string;
+  cliente_telefono: string | null;
+  cliente_documento: string | null;
+  items?: ItemPedido[]; // solo viene en el detalle de un pedido
 }
 
 export interface Modelo {

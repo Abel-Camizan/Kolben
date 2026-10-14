@@ -1,0 +1,45 @@
+<section class="tarjeta">
+  <h2>Mis pedidos</h2>
+
+  @if (recienCreado) {
+    <p class="aviso">¡Pedido generado! La tienda lo confirmará y podrás recogerlo y pagarlo en el local.</p>
+  }
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (!cargando() && pedidos().length === 0) {
+    <p>Todavía no tienes pedidos. <a routerLink="/catalogo">Ver el catálogo</a></p>
+  } @else {
+    <table>
+      <thead>
+        <tr><th>N.º</th><th>Fecha</th><th>Estado</th><th>Total</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (p of pedidos(); track p.id) {
+          <tr>
+            <td>{{ p.numero }}</td>
+            <td>{{ p.creado_en | date: 'dd/MM/yyyy HH:mm' }}</td>
+            <td><span class="estado" [class]="'estado ' + p.estado">{{ p.estado }}</span></td>
+            <td>S/ {{ p.total }}</td>
+            <td class="acciones">
+              <button type="button" class="secundario" (click)="ver(p)">
+                {{ abierto()?.id === p.id ? 'Ocultar' : 'Ver detalle' }}
+              </button>
+              @if (p.estado === 'pendiente') {
+                <button type="button" class="secundario" (click)="cancelar(p)">Cancelar</button>
+              }
+            </td>
+          </tr>
+          @if (abierto(); as a) {
+            @if (a.id === p.id) {
+              <tr>
+                <td colspan="5"><app-pedido-detalle [pedido]="a" /></td>
+              </tr>
+            }
+          }
+        }
+      </tbody>
+    </table>
+  }
+</section>

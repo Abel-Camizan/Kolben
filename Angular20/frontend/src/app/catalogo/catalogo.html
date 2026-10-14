@@ -1,0 +1,64 @@
+<section class="tarjeta">
+  <div class="encabezado">
+    <h2>Catálogo de repuestos</h2>
+    @if (!auth.esPersonal()) {
+      <a routerLink="/carrito" class="boton">Ver carrito ({{ carrito.cantidadTotal() }})</a>
+    }
+  </div>
+
+  <div class="filtros">
+    <input
+      name="texto"
+      placeholder="Buscar por nombre o código"
+      [(ngModel)]="texto"
+      (ngModelChange)="buscarConRetraso()"
+    />
+    <select name="modelo" [(ngModel)]="modeloId" (ngModelChange)="buscar()">
+      <option [ngValue]="null">Todos los modelos de moto</option>
+      @for (m of modelos(); track m.id) {
+        <option [ngValue]="m.id">{{ m.nombre }}</option>
+      }
+    </select>
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <table>
+    <thead>
+      <tr><th>Código</th><th>Repuesto</th><th>Modelos</th><th>Precio</th><th>Disponibilidad</th><th></th></tr>
+    </thead>
+    <tbody>
+      @for (r of resultados(); track r.id) {
+        <tr>
+          <td>{{ r.codigo }}</td>
+          <td>
+            {{ r.nombre }}
+            <small>{{ r.marca }}</small>
+          </td>
+          <td>
+            @for (m of r.modelos; track m.id) {
+              <small>{{ m.nombre }}</small>
+            }
+          </td>
+          <td>S/ {{ r.precio }}</td>
+          <td [class.agotado]="r.stock === 0">{{ r.stock > 0 ? 'En stock (' + r.stock + ')' : 'Agotado' }}</td>
+          <td>
+            @if (!auth.esPersonal()) {
+              <button
+                type="button"
+                (click)="carrito.agregar(r)"
+                [disabled]="r.stock === 0 || carrito.cantidadDe(r.id) >= r.stock"
+              >
+                {{ carrito.cantidadDe(r.id) > 0 ? 'Agregar otro (' + carrito.cantidadDe(r.id) + ')' : 'Agregar al carrito' }}
+              </button>
+            }
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="6">No hay repuestos que coincidan con la búsqueda.</td></tr>
+      }
+    </tbody>
+  </table>
+</section>

@@ -44,3 +44,13 @@ small { display: block; color: #6b7280; }
 .aviso { color: #15803d; }
 tr.inactivo td { color: #9ca3af; }
 td.acciones { display: flex; gap: 0.4rem; }
+
+/* Catálogo, carrito y pedidos */
+a.boton { display: inline-block; padding: 0.45rem 0.9rem; border-radius: 4px; background: #2563eb; color: #fff; text-decoration: none; }
+a.boton.secundario { background: #e5e7eb; color: #222; }
+.campo { display: flex; flex-direction: column; gap: 0.2rem; margin: 0.75rem 0; }
+.estado { padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.85rem; background: #e5e7eb; text-transform: capitalize; }
+.estado.pendiente { background: #fef3c7; color: #92400e; }
+.estado.confirmado { background: #dbeafe; color: #1e40af; }
+.estado.entregado { background: #dcfce7; color: #166534; }
+.estado.cancelado { background: #fee2e2; color: #991b1b; }
