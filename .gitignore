@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Build y caché de Angular
+dist/
+.angular/
+out-tsc/
+
+# Variables de entorno
+.env
+.env.*
+
+# Logs y sistema
+*.log
+.DS_Store
+Thumbs.db
