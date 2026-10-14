@@ -93,7 +93,7 @@ router.post('/', async (req, res) => {
             await db.query('UPDATE repuestos SET stock = stock + $1 WHERE id = $2', [cantidad, id]);
         }
         await db.query('COMMIT');
-        res.status(201).json(await cargarIngreso(pool, ingresoId));
+        res.status(201).json(await cargarIngreso(db, ingresoId)); // misma conexión: pedir otra al grupo puede bloquear
     } catch (err) {
         await db.query('ROLLBACK');
         res.status(500).json({ error: 'Error del servidor' });

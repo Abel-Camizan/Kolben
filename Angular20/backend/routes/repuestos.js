@@ -138,7 +138,8 @@ router.post('/', soloRoles('administrador'), async (req, res) => {
         );
         await guardarModelos(cliente, rows[0].id, b.modelos || []);
         await cliente.query('COMMIT');
-        const { rows: completo } = await pool.query(
+        // misma conexión: pedir otra al grupo mientras se retiene esta puede bloquear el servidor
+        const { rows: completo } = await cliente.query(
             `${SELECT_REPUESTO} WHERE r.id = $1 ${GROUP_BY}`, [rows[0].id]
         );
         res.status(201).json(completo[0]);
@@ -182,7 +183,7 @@ router.patch('/:id', soloRoles('administrador'), async (req, res) => {
         }
         if (b.modelos !== undefined) await guardarModelos(cliente, id, b.modelos);
         await cliente.query('COMMIT');
-        const { rows } = await pool.query(`${SELECT_REPUESTO} WHERE r.id = $1 ${GROUP_BY}`, [id]);
+        const { rows } = await cliente.query(`${SELECT_REPUESTO} WHERE r.id = $1 ${GROUP_BY}`, [id]);
         res.json(rows[0]);
     } catch (err) {
         await cliente.query('ROLLBACK');

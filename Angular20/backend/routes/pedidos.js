@@ -103,7 +103,7 @@ router.post('/', soloRoles('cliente'), async (req, res) => {
             );
         }
         await db.query('COMMIT');
-        res.status(201).json(await cargarPedido(pool, pedidoId));
+        res.status(201).json(await cargarPedido(db, pedidoId)); // misma conexión: pedir otra al grupo puede bloquear
     } catch (err) {
         await db.query('ROLLBACK');
         res.status(500).json({ error: 'Error del servidor' });
@@ -203,7 +203,7 @@ router.post('/:id/confirmar', soloRoles(...PERSONAL), async (req, res) => {
             [ventaId, id]
         );
         await db.query('COMMIT');
-        res.json(await cargarPedido(pool, id));
+        res.json(await cargarPedido(db, id)); // misma conexión: pedir otra al grupo puede bloquear
     } catch (err) {
         await db.query('ROLLBACK');
         if (err instanceof StockError) {

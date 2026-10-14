@@ -48,6 +48,11 @@ app.use('/api/reportes', reportesRoutes);
 app.use('/api/clientes', clientesRoutes);
 app.use('/api', catalogosRoutes); // marcas, categorías y modelos (personal)
 
-app.listen(PORT, () => {
-    console.log("Servidor backend corriendo en el puerto " + PORT);
-});
+// Solo se pone a escuchar al ejecutar `node server.js`; las pruebas importan `app` sin abrir el puerto
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log("Servidor backend corriendo en el puerto " + PORT);
+    });
+}
+
+module.exports = app;
